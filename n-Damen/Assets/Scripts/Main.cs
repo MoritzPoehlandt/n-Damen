@@ -9,12 +9,13 @@ public class Main : MonoBehaviour
     {
         //GameItems gameItems = this.gameObject.AddComponent<GameItems>();
         //gameItems.createBoard(8);
-        AlgorithmBT backtraking=new AlgorithmBT(5) ;
-         backtraking.solve(0);
+        //gameItems.setFieldGreen("45");
+        AlgorithmBT backtraking = new AlgorithmBT(5);
+        backtraking.solve(0);
         //backtraking.setQueenLogiс(1,2);
         //backtraking.removeQueenLogiс(1,2);
-         Debug.Log(backtraking.countSolve);
-         Debug.Log(backtraking.variantenGepruft);
+        Debug.Log(backtraking.countSolve);
+        Debug.Log(backtraking.variantenGepruft);
 
     }
 

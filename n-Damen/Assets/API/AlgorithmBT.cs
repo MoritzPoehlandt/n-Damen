@@ -10,6 +10,7 @@ public class AlgorithmBT : MonoBehaviour
 	public int proplemN;
 	public int countSolve=0;
 	public int variantenGepruft=0;
+
 //Create an n * n board and fill with zeros
     public AlgorithmBT (int n){
 		twoDimArrayBoard=new int [n,n];
