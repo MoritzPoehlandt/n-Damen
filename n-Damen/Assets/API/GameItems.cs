@@ -40,8 +40,9 @@ public class GameItems : MonoBehaviour
             {
                 if (isWhite == true)
                 {
-                    GameObject field_white = Instantiate(Resources.Load("Prefab/Feld-Weis-01", typeof(GameObject))) as GameObject;
+                    GameObject field_white = Instantiate(Resources.Load("Prefab/white", typeof(GameObject))) as GameObject;
                     field_white.transform.position = new Vector3(i, 0, j);
+                    field_white.transform.localScale = new Vector3(1.05f, 1.0f, 1.05f);
                     field_white.name = j.ToString() + i.ToString();
                     field_white.transform.parent = parent.transform;
                     if (j == n - 1 && n % 2 == 0)
@@ -55,8 +56,9 @@ public class GameItems : MonoBehaviour
                 }
                 else
                 {
-                    GameObject field_black = Instantiate(Resources.Load("Prefab/Feld-Schwarz-01", typeof(GameObject))) as GameObject;
+                    GameObject field_black = Instantiate(Resources.Load("Prefab/black", typeof(GameObject))) as GameObject;
                     field_black.transform.position = new Vector3(i, 0, j);
+                    field_black.transform.localScale = new Vector3(1.05f, 1.0f, 1.05f);
                     field_black.name = j.ToString() + i.ToString();
                     field_black.transform.parent = parent.transform;
                     if (j == n - 1 && n % 2 == 0)
@@ -72,11 +74,41 @@ public class GameItems : MonoBehaviour
         }
     }
 
-    // This methodes creates a queen with name an d position
+    // This methode removes the field with name and set a green field on the same position
+
+    public void setFieldGreen(string name)
+    {
+        GameObject field = GameObject.Find(name);
+        string fName = field.name;
+        Vector3 fPosition = field.transform.position;
+        Vector3 fScale = field.transform.localScale;
+        Destroy(field);
+        field = Instantiate(Resources.Load("Prefab/green", typeof(GameObject))) as GameObject;
+        field.name = fName;
+        field.transform.position = fPosition;
+        field.transform.localScale = fScale;
+    }
+
+    // This methode removes the field with name and set a red field on the same position
+
+    public void setFieldRed(string name)
+    {
+        GameObject field = GameObject.Find(name);
+        string fName = field.name;
+        Vector3 fPosition = field.transform.position;
+        Vector3 fScale = field.transform.localScale;
+        Destroy(field);
+        field = Instantiate(Resources.Load("Prefab/red", typeof(GameObject))) as GameObject;
+        field.name = fName;
+        field.transform.position = fPosition;
+        field.transform.localScale = fScale;
+    }
+
+    // This methode creates a queen with name an d position
 
     public void createQueen(string name, Vector3 position)
     {
-        GameObject queen = Instantiate(Resources.Load("Prefab/Dame-01", typeof(GameObject))) as GameObject;
+        GameObject queen = Instantiate(Resources.Load("Prefab/queen", typeof(GameObject))) as GameObject;
         queen.transform.position = position;
         queen.transform.Rotate(-90.0f, 0f, 0f);
         queen.name = name;

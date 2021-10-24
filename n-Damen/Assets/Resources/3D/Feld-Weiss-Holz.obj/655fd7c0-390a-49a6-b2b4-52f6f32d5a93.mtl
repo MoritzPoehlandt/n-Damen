@@ -1,0 +1,24 @@
+
+newmtl FlatFFFFFF7c95787e-9970-40aa-8412-b6eb293d774d
+Kd  01 01 01
+Ks  00 00 00
+Ka  00 00 00
+d  01
+Ns  00
+illum 0
+map_Kd 7c95787e-9970-40aa-8412-b6eb293d774d.png
+
+
+
+
+newmtl FlatFFFFFFfcba4be0-217a-46d2-8451-4b82b5b1725d
+Kd  01 01 01
+Ks  00 00 00
+Ka  00 00 00
+d  01
+Ns  00
+illum 0
+map_Kd fcba4be0-217a-46d2-8451-4b82b5b1725d.png
+
+
+

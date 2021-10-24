@@ -13,8 +13,13 @@ public class Main : MonoBehaviour
     {
         //GameItems gameItems = this.gameObject.AddComponent<GameItems>();
         //gameItems.createBoard(8);
-        backtraking=new AlgorithmBT(8) ;
-         backtraking.solve(0);
+        //gameItems.setFieldGreen("45");
+        backtraking = new AlgorithmBT(8);
+        backtraking.solve(0);
+        //backtraking.setQueenLogiс(1,2);
+        //backtraking.removeQueenLogiс(1,2);
+        Debug.Log(backtraking.countSolve);
+        Debug.Log(backtraking.arrayListLogAlgoritm.Count);
 
     }
 
