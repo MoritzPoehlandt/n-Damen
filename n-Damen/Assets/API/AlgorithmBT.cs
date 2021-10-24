@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 
-public class AlgorithmBT : MonoBehaviour
+public class AlgorithmBT : GameItems
 {
 	public GameItems gameItems= new GameItems();
 	public int[,] twoDimArrayBoard;
 	public int proplemN;
 	public int countSolve=0;
 	public int variantenGepruft=0;
+	public List<Queen> arrayListLogAlgoritm= new List<Queen>();
 //Create an n * n board and fill with zeros
     public AlgorithmBT (int n){
 		twoDimArrayBoard=new int [n,n];
@@ -39,7 +40,8 @@ public class AlgorithmBT : MonoBehaviour
 		}
 		twoDimArrayBoard[x,y]=-1;
 		//put the queen on the virtual board	
-		gameItems.createQueen(x+"_"+y,new Vector3(x,0,y));//x z y
+		//gameItems.createQueen(x+"_"+y,new Vector3(x,0,y));//x z y
+		arrayListLogAlgoritm.Add(new Queen(x,y,true));
 	}
 //The queen is removed in a field with the coordinates x, y.
 	public void removeQueenLogiс(int x, int y) {
@@ -57,8 +59,9 @@ public class AlgorithmBT : MonoBehaviour
 			}
 		}
 		//removed  the queen on the virtual board	
-		gameItems.deleteQueen(x+"_"+y);//x z y
+		//gameItems.deleteQueen(x+"_"+y);//x z y
 		twoDimArrayBoard[x,y]=0;
+		arrayListLogAlgoritm.Add(new Queen(x,y,false));
 			
 	}
 //prints out the position of the queen. Only works if n is less than 27 
