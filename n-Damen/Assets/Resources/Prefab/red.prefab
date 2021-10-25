@@ -172,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3800664062524811475}
   m_Layer: 0
-  m_Name: read
+  m_Name: red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
