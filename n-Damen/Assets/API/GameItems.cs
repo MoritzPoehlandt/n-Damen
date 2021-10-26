@@ -24,6 +24,7 @@ public class GameItems : MonoBehaviour
     private GameObject queen;
     private Vector3 qPosition;
     private float qSpeed = 1.0f;
+    GameObject parent = new GameObject();
 
     //This methode creates a board with n* n fields
     // Each field get a specific number starting from 0 to n*n
@@ -31,7 +32,6 @@ public class GameItems : MonoBehaviour
     public void createBoard(int n)
     {
         bool isWhite = true;
-        GameObject parent = new GameObject();
         parent.name = "board";
 
         for (int i = 0; i < n; i++)
@@ -87,6 +87,7 @@ public class GameItems : MonoBehaviour
         field.name = fName;
         field.transform.position = fPosition;
         field.transform.localScale = fScale;
+        field.transform.parent = parent.transform;
     }
 
     // This methode removes the field with name and set a red field on the same position
@@ -102,6 +103,7 @@ public class GameItems : MonoBehaviour
         field.name = fName;
         field.transform.position = fPosition;
         field.transform.localScale = fScale;
+        field.transform.parent = parent.transform;
     }
 
     // This methode creates a queen with name an d position

@@ -94,8 +94,9 @@ public class AlgorithmBT : GameItems
 			removeQueenLogiс(i, j);	
 			}
 		}	
-	}   
-	   public void editBoard() {
+	}
+
+	public void editBoard() {
 		for (int i=0;i<proplemN;i++) {
 			for (int j=0;j<proplemN;j++) {
                 if (simulation.logicArrayBoard[i,j]>0){
