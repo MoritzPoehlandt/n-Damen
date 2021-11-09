@@ -11,7 +11,7 @@ public class FreeGame : MonoBehaviour
     void Start()
     {
         backtraking = new AlgorithmBT(5);
-        backtraking.solve(2);
+        backtraking.solve(0);
     }
 
     // Update is called once per frame

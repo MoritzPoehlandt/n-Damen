@@ -115,6 +115,7 @@ public class AlgorithmBT : GameItems
 	public void message(){
 		Debug.Log("Hello World");
 	}
+
 	public void button()
     {
         //pressing the space starts the simulation. When pressed again, stop
