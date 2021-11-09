@@ -79,7 +79,8 @@ public class AlgorithmBT : GameItems
 			}
 		}
 		Debug.Log(result);
-	}   
+	}
+
 //Hauptfunktion Lesung fuer i Zeile
 	public void solve (int i) {
 		for (int j=0; j<proplemN;j++) {
