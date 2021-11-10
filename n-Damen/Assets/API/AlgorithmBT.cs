@@ -79,8 +79,7 @@ public class AlgorithmBT : GameItems
 			}
 		}
 		Debug.Log(result);
-	}
-
+	}   
 //Hauptfunktion Lesung fuer i Zeile
 	public void solve (int i) {
 		for (int j=0; j<proplemN;j++) {
@@ -96,7 +95,7 @@ public class AlgorithmBT : GameItems
 			}
 		}	
 	}   
-	   public void editBoard() {
+	public void editBoard() {
 		for (int i=0;i<proplemN;i++) {
 			for (int j=0;j<proplemN;j++) {
                 if (simulation.logicArrayBoard[i,j]>0){
@@ -108,14 +107,52 @@ public class AlgorithmBT : GameItems
 				if(simulation.logicArrayBoard[i,j]==-1){
 					setFieldWhite(i.ToString()+j.ToString());
 				}
-
 			}
 		}
     } 
 	public void message(){
 		Debug.Log("Hello World");
 	}
-
+	//1 step of the algorithm forward, work with  Atribute	simulation
+	public void nextStep(){
+		if (arrayListLogAlgoritm[simulation.iteration].set_or_remove==true){
+			createQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y,
+			new Vector3(arrayListLogAlgoritm[simulation.iteration].x,0,arrayListLogAlgoritm[simulation.iteration].y));
+			simulation.setQueenSim( arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);	
+		}else{
+				deleteQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y); 
+				simulation.removeQueenSim(arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);		 
+			}
+		simulation.iteration++;
+		editBoard();
+	}
+	//1 step of the algorithm back , work with  Atribute	simulation
+	public void prevStep(){
+		if(simulation.iteration>0){
+			simulation.iteration--; 
+			if(GameObject.Find(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y) == null){
+				if(arrayListLogAlgoritm[simulation.iteration].set_or_remove==false){
+					createQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y,
+                	new Vector3(arrayListLogAlgoritm[simulation.iteration].x,0,arrayListLogAlgoritm[simulation.iteration].y));
+					simulation.setQueenSim(arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);
+					}
+			}else
+				{
+				if(arrayListLogAlgoritm[simulation.iteration].set_or_remove==true){
+               		deleteQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y);
+					simulation.removeQueenSim(arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);				   
+					}
+				}
+			editBoard();
+		}
+	}
+	//goes step by step by attribute - simulation
+	public void runSimulation(int timeStep){
+		if (arrayListLogAlgoritm.Count>simulation.iteration){
+			nextStep();
+    		Thread.Sleep(timeStep);
+    	}
+	}
 	public void button()
     {
         //pressing the space starts the simulation. When pressed again, stop
@@ -130,61 +167,22 @@ public class AlgorithmBT : GameItems
 		}
         //While the mod play, we take one step in front and again check if the value has changed
         if (simulation.isPlay){
-        	if (arrayListLogAlgoritm.Count>simulation.iteration){
-            	 if (arrayListLogAlgoritm[simulation.iteration].set_or_remove==true){
-                    createQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y,
-                    new Vector3(arrayListLogAlgoritm[simulation.iteration].x,0,arrayListLogAlgoritm[simulation.iteration].y));
-					simulation.setQueenSim(arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);	
-             	}else{
-                    deleteQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y); 
-					simulation.removeQueenSim(arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);		 
-             }
-				editBoard();
-                simulation.iteration++;
-                Thread.Sleep(300);
-            }
+				runSimulation(100);
         }
         //when pressing to the left 1 step of the algorithm back 
         if (Input.GetKeyDown("left")){
 			if (simulation.isPlay){
 				simulation.isPlay=false;
 			}else{
-				if(simulation.iteration>0){
-					simulation.iteration--; 
-					if(GameObject.Find(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y) == null){
-						if(arrayListLogAlgoritm[simulation.iteration].set_or_remove==false){
-							createQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y,
-                    		new Vector3(arrayListLogAlgoritm[simulation.iteration].x,0,arrayListLogAlgoritm[simulation.iteration].y));
-							simulation.setQueenSim(arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);
-						}
-						}else
-							{
-							if(arrayListLogAlgoritm[simulation.iteration].set_or_remove==true){
-               					 deleteQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y);
-								simulation.removeQueenSim(arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);				   
-								}
-							}
-				editBoard();
-				}
+				prevStep();
 			}            	 
 		}
         //when pressing to the right 1 step of the algorithm forward
 		 if (Input.GetKeyDown("right")){
 			if (simulation.isPlay){
 				simulation.isPlay=false;
-				
 			}else{
-				    if (arrayListLogAlgoritm[simulation.iteration].set_or_remove==true){
-                    	createQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y,
-                   		new Vector3(arrayListLogAlgoritm[simulation.iteration].x,0,arrayListLogAlgoritm[simulation.iteration].y));
-					simulation.setQueenSim(
-                         arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);	
-             		}else{
-                    	deleteQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y); 
-						simulation.removeQueenSim(arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);		 
-             		}
-					simulation.iteration++;
-					editBoard(); 
+				nextStep();
 				}	
 		}
     }
