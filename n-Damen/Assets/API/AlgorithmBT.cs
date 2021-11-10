@@ -11,6 +11,7 @@ public class AlgorithmBT : GameItems
 	public int variantenGepruft=0;
 	public List<Queen> arrayListLogAlgoritm= new List<Queen>();
 	public Simulation simulation;
+	public int queensOnTable; 
 
 	//Create an n * n board and fill with zeros
 
@@ -24,6 +25,7 @@ public class AlgorithmBT : GameItems
         proplemN=n;
         createBoard(n);
 		simulation= new Simulation(n);
+		queensOnTable=0;
     }
 
 	//The queen is placed in a field with the coordinates x, y.
@@ -46,6 +48,7 @@ public class AlgorithmBT : GameItems
 		//put the queen on the virtual board	
 		//gameItems.createQueen(x+"_"+y,new Vector3(x,0,y));//x z y
 		arrayListLogAlgoritm.Add(new Queen(x,y,true));
+		queensOnTable++;
 	}
 
 	//The queen is removed in a field with the coordinates x, y.
@@ -66,7 +69,7 @@ public class AlgorithmBT : GameItems
 		//removed  the queen on the virtual board	
 		twoDimArrayBoard[x,y]=0;
 		arrayListLogAlgoritm.Add(new Queen(x,y,false));
-			
+		queensOnTable--;	
 	}
 
 	//prints out the position of the queen. Only works if n is less than 27
@@ -101,7 +104,19 @@ public class AlgorithmBT : GameItems
 			}
 		}	
 	}
-	
+	public void solve(int startX, int startY){
+		for(int i=startX;i<proplemN;i++){
+			for(int j=startY;j<proplemN;j++){
+				if(twoDimArrayBoard[i,j]==0){
+					setQueenLogiс(i, j);
+					if (queensOnTable==proplemN){
+						countSolve++;
+						}else solve(i,0);
+					removeQueenLogiс(i, j);	
+				}	
+			}		
+		}	
+	}
 	public void editBoard() {
 		for (int i=0;i<proplemN;i++) {
 			for (int j=0;j<proplemN;j++) {

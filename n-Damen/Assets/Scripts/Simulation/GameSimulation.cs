@@ -10,7 +10,9 @@ public class GameSimulation : MonoBehaviour
     void Start()
     {
         backtraking = new AlgorithmBT(8);
-        backtraking.solve(0);
+        backtraking.setQueenLogiс(1,3);
+        backtraking.solve(0,0);
+        
         Debug.Log(backtraking.countSolve);
         Debug.Log(backtraking.arrayListLogAlgoritm.Count);
     }
