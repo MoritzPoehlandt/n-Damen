@@ -11,8 +11,10 @@ public class AlgorithmBT : GameItems
 	public int countSolve=0;
 	public int variantenGepruft=0;
 	public List<Queen> arrayListLogAlgoritm= new List<Queen>();
-	public Simulation simulation; 
-//Create an n * n board and fill with zeros
+	public Simulation simulation;
+
+	//Create an n * n board and fill with zeros
+
     public AlgorithmBT (int n){
 		twoDimArrayBoard=new int [n,n];
 		for (int i=0;i<n;i++) {
@@ -23,8 +25,10 @@ public class AlgorithmBT : GameItems
         proplemN=n;
         gameItems.createBoard(n);
 		simulation= new Simulation(n);
-    } 
-//The queen is placed in a field with the coordinates x, y.
+    }
+
+	//The queen is placed in a field with the coordinates x, y.
+
 	public void setQueenLogiс(int x, int y) {
 		variantenGepruft++;
 		//Thread.Sleep(1000);
@@ -45,7 +49,9 @@ public class AlgorithmBT : GameItems
 		//gameItems.createQueen(x+"_"+y,new Vector3(x,0,y));//x z y
 		arrayListLogAlgoritm.Add(new Queen(x,y,true));
 	}
-//The queen is removed in a field with the coordinates x, y.
+
+	//The queen is removed in a field with the coordinates x, y.
+
 	public void removeQueenLogiс(int x, int y) {
 		//Thread.Sleep(1000);
 		//fill the horizontal and vertical 0
@@ -66,7 +72,9 @@ public class AlgorithmBT : GameItems
 		arrayListLogAlgoritm.Add(new Queen(x,y,false));
 			
 	}
-//prints out the position of the queen. Only works if n is less than 27 
+
+	//prints out the position of the queen. Only works if n is less than 27
+
 	public void printPosition() {
 		string [] abc=new string [26]{"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r",
                                         "s","t","u","v","w","x","y","z"};
@@ -79,8 +87,10 @@ public class AlgorithmBT : GameItems
 			}
 		}
 		Debug.Log(result);
-	}   
-//Hauptfunktion Lesung fuer i Zeile
+	}
+	
+	//Hauptfunktion Lesung fuer i Zeile
+
 	public void solve (int i) {
 		for (int j=0; j<proplemN;j++) {
 			if (twoDimArrayBoard[i,j]==0) {
@@ -94,7 +104,8 @@ public class AlgorithmBT : GameItems
 			removeQueenLogiс(i, j);	
 			}
 		}	
-	}   
+	}
+	
 	public void editBoard() {
 		for (int i=0;i<proplemN;i++) {
 			for (int j=0;j<proplemN;j++) {
@@ -109,11 +120,10 @@ public class AlgorithmBT : GameItems
 				}
 			}
 		}
-    } 
-	public void message(){
-		Debug.Log("Hello World");
-	}
+    }
+
 	//1 step of the algorithm forward, work with  Atribute	simulation
+
 	public void nextStep(){
 		if (arrayListLogAlgoritm[simulation.iteration].set_or_remove==true){
 			createQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y,
@@ -126,7 +136,9 @@ public class AlgorithmBT : GameItems
 		simulation.iteration++;
 		editBoard();
 	}
+
 	//1 step of the algorithm back , work with  Atribute	simulation
+
 	public void prevStep(){
 		if(simulation.iteration>0){
 			simulation.iteration--; 
@@ -146,44 +158,13 @@ public class AlgorithmBT : GameItems
 			editBoard();
 		}
 	}
+
 	//goes step by step by attribute - simulation
+
 	public void runSimulation(int timeStep){
 		if (arrayListLogAlgoritm.Count>simulation.iteration){
 			nextStep();
     		Thread.Sleep(timeStep);
     	}
 	}
-	public void button()
-    {
-        //pressing the space starts the simulation. When pressed again, stop
-        if (Input.GetKeyDown("space")){
-            if (simulation.isPlay==false){
-                simulation.isPlay=true;
-                Debug.Log("Play Simulaton");
-            }else {
-                simulation.isPlay=false;
-                Debug.Log("Stop Simulaton");
-                }
-		}
-        //While the mod play, we take one step in front and again check if the value has changed
-        if (simulation.isPlay){
-				runSimulation(100);
-        }
-        //when pressing to the left 1 step of the algorithm back 
-        if (Input.GetKeyDown("left")){
-			if (simulation.isPlay){
-				simulation.isPlay=false;
-			}else{
-				prevStep();
-			}            	 
-		}
-        //when pressing to the right 1 step of the algorithm forward
-		 if (Input.GetKeyDown("right")){
-			if (simulation.isPlay){
-				simulation.isPlay=false;
-			}else{
-				nextStep();
-				}	
-		}
-    }
 }
