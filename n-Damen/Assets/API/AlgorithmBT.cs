@@ -5,7 +5,6 @@ using System.Threading;
 
 public class AlgorithmBT : GameItems
 {
-	public GameItems gameItems= new GameItems();
 	public int[,] twoDimArrayBoard;
 	public int proplemN;
 	public int countSolve=0;
@@ -23,7 +22,7 @@ public class AlgorithmBT : GameItems
 			}
 		}
         proplemN=n;
-        gameItems.createBoard(n);
+        createBoard(n);
 		simulation= new Simulation(n);
     }
 
@@ -31,7 +30,6 @@ public class AlgorithmBT : GameItems
 
 	public void setQueenLogiс(int x, int y) {
 		variantenGepruft++;
-		//Thread.Sleep(1000);
 		//die horizontalen und vertikalen Felder ausfuellen +1
 		for (int i=0; i<proplemN;i++) {
 			twoDimArrayBoard[i,y]++;
@@ -53,7 +51,6 @@ public class AlgorithmBT : GameItems
 	//The queen is removed in a field with the coordinates x, y.
 
 	public void removeQueenLogiс(int x, int y) {
-		//Thread.Sleep(1000);
 		//fill the horizontal and vertical 0
 		for (int i=0; i<proplemN;i++) {
 			twoDimArrayBoard[i,y]--;
@@ -67,7 +64,6 @@ public class AlgorithmBT : GameItems
 			}
 		}
 		//removed  the queen on the virtual board	
-		//gameItems.deleteQueen(x+"_"+y);//x z y
 		twoDimArrayBoard[x,y]=0;
 		arrayListLogAlgoritm.Add(new Queen(x,y,false));
 			

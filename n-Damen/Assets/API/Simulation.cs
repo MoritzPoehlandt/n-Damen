@@ -8,7 +8,8 @@ public class Simulation : MonoBehaviour
     public int proplemN;
     public int iteration =0;
     public bool isPlay =false;
-        public Simulation (int n){
+
+    public Simulation (int n){
 		logicArrayBoard=new int [n,n];
 		for (int i=0;i<n;i++) {
 			for (int j=0;j<n;j++) {
