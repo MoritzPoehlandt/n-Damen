@@ -9,7 +9,7 @@ public class GameItemsOnClick : MonoBehaviour
     private void Start()
     {
         _transform = transform;
-        Debug.Log(_transform.position);
+//        Debug.Log(_transform.position);
     }
 
     //void Update()
