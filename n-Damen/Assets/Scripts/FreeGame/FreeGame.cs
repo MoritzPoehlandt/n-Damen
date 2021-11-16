@@ -10,13 +10,15 @@ public class FreeGame : GameItems
     void Start()
     {
         backtraking = new AlgorithmBT(8);
-        backtraking.solve(0);
+        backtraking.createQueenWithClick = true;
 
         backtraking.setQueenLogiс(0, 1);
         createQueen("0_1", new Vector3(0, 0, 1));
 
         backtraking.setQueenLogiс(1, 4);
         createQueen("1_4", new Vector3(1, 0, 4));
+
+        backtraking.solve(0, 0);
 
         backtraking.editBoard();
     }

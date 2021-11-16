@@ -24,6 +24,7 @@ public class GameItems : MonoBehaviour
     private GameObject queen;
     private Vector3 qPosition;
     private float qSpeed = 1.0f;
+    public bool createQueenWithClick = false;
     GameObject parent;
 
     //This methode creates a board with n* n fields
@@ -46,7 +47,10 @@ public class GameItems : MonoBehaviour
                     field_white.transform.localScale = new Vector3(1.05f, 1.0f, 1.05f);
                     field_white.name = j.ToString() + i.ToString();
                     field_white.transform.parent = parent.transform;
-                    field_white.AddComponent<GameItemsOnClick>();
+                    if (createQueenWithClick == true)
+                    {
+                        field_white.AddComponent<GameItemsOnClick>();
+                    }
                     if (j == n - 1 && n % 2 == 0)
                     {
                         isWhite = true;
@@ -63,7 +67,10 @@ public class GameItems : MonoBehaviour
                     field_black.transform.localScale = new Vector3(1.05f, 1.0f, 1.05f);
                     field_black.name = j.ToString() + i.ToString();
                     field_black.transform.parent = parent.transform;
-                    field_black.AddComponent<GameItemsOnClick>();
+                    if (createQueenWithClick == true)
+                    {
+                        field_black.AddComponent<GameItemsOnClick>();
+                    }
                     if (j == n - 1 && n % 2 == 0)
                     {
                         isWhite = false;
@@ -91,7 +98,10 @@ public class GameItems : MonoBehaviour
         field.transform.position = fPosition;
         field.transform.localScale = fScale;
         field.transform.parent = parent.transform;
-        field.AddComponent<GameItemsOnClick>();
+        if (createQueenWithClick == true)
+        {
+            field.AddComponent<GameItemsOnClick>();
+        }
     }
 
     // This methode removes the field with name and set a red field on the same position
@@ -108,7 +118,10 @@ public class GameItems : MonoBehaviour
         field.transform.position = fPosition;
         field.transform.localScale = fScale;
         field.transform.parent = parent.transform;
-        field.AddComponent<GameItemsOnClick>();
+        if (createQueenWithClick == true)
+        {
+            field.AddComponent<GameItemsOnClick>();
+        }
     }
 
     // This methode removes the field with name and set a white field on the same position
@@ -125,7 +138,10 @@ public class GameItems : MonoBehaviour
         field.transform.position = fPosition;
         field.transform.localScale = fScale;
         field.transform.parent = parent.transform;
-        field.AddComponent<GameItemsOnClick>();
+        if (createQueenWithClick == true)
+        {
+            field.AddComponent<GameItemsOnClick>();
+        }
     }
 
     // This methode removes the field with name and set a black field on the same position
@@ -142,7 +158,10 @@ public class GameItems : MonoBehaviour
         field.transform.position = fPosition;
         field.transform.localScale = fScale;
         field.transform.parent = parent.transform;
-        field.AddComponent<GameItemsOnClick>();
+        if (createQueenWithClick == true)
+        {
+            field.AddComponent<GameItemsOnClick>();
+        }
     }
 
     // This methode creates a queen with name an d position

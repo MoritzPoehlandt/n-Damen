@@ -90,7 +90,7 @@ public class AlgorithmBT : GameItems
 	
 	//Hauptfunktion Lesung fuer i Zeile
 
-	public void solve (int i) {
+	public void solve(int i) {
 		for (int j=0; j<proplemN;j++) {
 			if (twoDimArrayBoard[i,j]==0) {
 				setQueenLogiс(i, j);
