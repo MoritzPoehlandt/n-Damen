@@ -15,16 +15,6 @@ public class GameSimulation : MonoBehaviour
     void Start()
     {
 
-        //backtraking = new AlgorithmBT(8);
-        /*backtraking.simulation.setQueenSim(0,0);
-        backtraking.simulation.solve(0,0);
-        Debug.Log(backtraking.simulation.solveCount);  */
-        //backtraking.setQueenLogiс(1,3);
-       // backtraking.solve(0);
-        
-        
-      //  Debug.Log(backtraking.countSolve);
-      //  Debug.Log(backtraking.arrayListLogAlgoritm.Count);
     }
 
     // Update is called once per frame
@@ -129,14 +119,18 @@ public class GameSimulation : MonoBehaviour
         timeSimulation=timeSimulation-100;
         }
 
-        }   
+    }   
     public void reduceSpeed(){
         timeSimulation=timeSimulation+100;
         }            
     public void setText(){
 
         text.text=$"{backtraking.simulation.iteration}" +"  " +$"{backtraking.simulation.solveCount}";
-    }    
+    } 
+    public void setText(string message){
+
+        text.text=message;
+    }  
     public void applyButton(){ 
         if(GameObject.Find("board") != null){
             Destroy(GameObject.Find("board")) ;
@@ -148,11 +142,15 @@ public class GameSimulation : MonoBehaviour
                 }
             }
         }
-
-        userProblemN=	 Convert.ToInt32(inputN.text); 
-        createProbleme();
+        userProblemN=	 Convert.ToInt32(inputN.text);
+        if(userProblemN<12 && userProblemN>0){
+            createProbleme();
+        }else{
+                setText("The number must be less than 12 and greater than 0");  
+        }
     }   
     public void createProbleme(){
+        setText("");
         if (userProblemN!=0){
             backtraking = new AlgorithmBT(userProblemN);
             backtraking.solve(0);
