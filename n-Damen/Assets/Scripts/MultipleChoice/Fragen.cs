@@ -21,7 +21,7 @@ public class Fragen
         FragenListe = FragenListe.OrderBy(x => rand.Next()).ToArray();
     }
 
-    public Frage nächsteFrage()
+    public Frage naechsteFrage()
     {
         if (FragenListe.Length <= AktuelleFrage)
         {

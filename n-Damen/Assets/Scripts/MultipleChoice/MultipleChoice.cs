@@ -37,7 +37,7 @@ public class MultipleChoice : MonoBehaviour
             curButton.GetComponent<Image>().color = Color.red;
         }
 
-        // für richtige antwort soll grün sein egal welcher button gedrückt wurde
+        // f?r richtige antwort soll gr?n sein egal welcher button gedr?ckt wurde
         foreach (GameObject button in antwortButtonArr)
         {
             if (button.GetComponent<MonoAntwort>().Richtig)
@@ -49,7 +49,7 @@ public class MultipleChoice : MonoBehaviour
         }
     }
 
-    public void nächsteFrage()
+    public void naechsteFrage()
     {
         // reset buttons
         foreach (GameObject button in antwortButtonArr)
@@ -58,7 +58,7 @@ public class MultipleChoice : MonoBehaviour
             button.GetComponent<Button>().enabled = true;
         }
 
-        Frage f = fragen.nächsteFrage();
+        Frage f = fragen.naechsteFrage();
         if (f == null)
         {
             // TODO ende
@@ -91,10 +91,7 @@ public class MultipleChoice : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-
-
-        nächsteFrage();
+        naechsteFrage();
     }
 
     // Update is called once per frame
@@ -103,10 +100,10 @@ public class MultipleChoice : MonoBehaviour
 
     }
 
-    // Warte 2 sekunden und dann schaue die nächste Frage
+    // Warte 2 sekunden und dann schaue die n?chste Frage
     IEnumerator WaitSeconds(int seconds)
     {
         yield return new WaitForSeconds(seconds);
-        nächsteFrage();
+        naechsteFrage();
     }
 }
