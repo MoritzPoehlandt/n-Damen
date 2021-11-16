@@ -8,6 +8,8 @@ public class Simulation : MonoBehaviour
     public int proplemN;
     public int iteration =0;
     public bool isPlay =false;
+	public int solveCount=0;
+	public int queens;
 
     public Simulation (int n){
 		logicArrayBoard=new int [n,n];
@@ -17,6 +19,7 @@ public class Simulation : MonoBehaviour
 			}
 		}
         proplemN=n;
+		queens=0;
     } 
     public void setQueenSim(int x, int y) {
 		for (int i=0; i<proplemN;i++) {
@@ -31,6 +34,7 @@ public class Simulation : MonoBehaviour
 			}
 		}
 		logicArrayBoard[x,y]=-1;
+		queens++;
 	}
     public void removeQueenSim(int x, int y) {
 		for (int i=0; i<proplemN;i++) {
@@ -45,6 +49,30 @@ public class Simulation : MonoBehaviour
 			}
 		}
 		logicArrayBoard[x,y]=0;  
-			
+		queens--;	
+	}
+	public void solve(int startX, int startY){	
+		for(int i=startX;i<proplemN;i++){
+			for(int j=startY;j<proplemN;j++){
+				if(logicArrayBoard[i,j]==0){
+					setQueenSim(i, j);
+					if (queens==proplemN){
+						solveCount++;
+						}else solve(i,0);
+					removeQueenSim(i, j);	
+				}	
+			}		
+		}	
+	}
+	public void printBoard (){
+		
+		for (int i=0;i<proplemN;i++) {
+			string a="";
+			for (int j=0;j<proplemN;j++) {
+				a=a +" "+ logicArrayBoard[i,j];
+			}
+			Debug.Log(a);
+		}
+
 	}
 }

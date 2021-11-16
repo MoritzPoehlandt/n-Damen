@@ -14,7 +14,17 @@ public class GameSimulation : MonoBehaviour
 
     void Start()
     {
-
+    //backtraking = new AlgorithmBT(4);
+ /*   Simulation sim=new Simulation(4);
+    //backtraking.simulation.setQueenSim(0,1);
+    //backtraking.simulation.solve(0,0);
+    sim.setQueenSim(0,1);
+    sim.printBoard();
+    sim.solve(0,0);
+    
+    Debug.Log(sim.solveCount);
+    */
+    //Debug.Log(backtraking.countSolve);
     }
 
     // Update is called once per frame
@@ -100,9 +110,11 @@ public class GameSimulation : MonoBehaviour
             else
             {
                 backtraking.prevStep();
+                backtraking.simulation.solveCount=0;
+                backtraking.simulation.solve(0,0);
+                setText();
             }
-            backtraking.simulation.solve(0,0);
-            setText();
+
         }        
     public void forwardButton(){
         if (backtraking.simulation.isPlay) {
@@ -110,25 +122,24 @@ public class GameSimulation : MonoBehaviour
             }
             else  {
                 backtraking.nextStep();
+                backtraking.simulation.solveCount=0;
+                backtraking.simulation.solve(0,0);
+                setText();
             }
-            backtraking.simulation.solve(0,0);
-            setText();
+
         } 
     public void increaseSpeed(){
         if (timeSimulation>=200){
         timeSimulation=timeSimulation-100;
         }
-
     }   
     public void reduceSpeed(){
         timeSimulation=timeSimulation+100;
         }            
     public void setText(){
-
-        text.text=$"{backtraking.simulation.iteration}" +"  " +$"{backtraking.simulation.solveCount}";
+        text.text="Ход симуляции № "+$"{backtraking.simulation.iteration}" +"\nКоличество решений с данной растановкой  " +$"{backtraking.simulation.solveCount}";
     } 
     public void setText(string message){
-
         text.text=message;
     }  
     public void applyButton(){ 
