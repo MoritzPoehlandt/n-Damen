@@ -1,0 +1,33 @@
+
+newmtl StandardFFFFFF
+Kd  01 01 01
+Ks  00 00 00
+Ka  00 00 00
+d  01
+Ns  00
+illum 2
+
+
+
+
+newmtl Standard4D4D4D
+Kd  0.30196078 0.30196078 0.30196078
+Ks  00 00 00
+Ka  00 00 00
+d  01
+Ns  00
+illum 2
+
+
+
+
+newmtl Standard000000
+Kd  00 00 00
+Ks  00 00 00
+Ka  00 00 00
+d  01
+Ns  00
+illum 2
+
+
+
