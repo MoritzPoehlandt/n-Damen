@@ -6,6 +6,8 @@ public class GameItemsOnClick : MonoBehaviour
 {
     Transform _transform;
 
+    public FreeGame freeGame;
+
     private void Start()
     {
         _transform = transform;
@@ -14,7 +16,7 @@ public class GameItemsOnClick : MonoBehaviour
 
     private void OnMouseDown()
     {
-        GameItems gameItems = new GameItems();
-        gameItems.createQueen(_transform.position.x.ToString() + "_" + _transform.position.z.ToString(), _transform.position);
+        freeGame = FindObjectOfType<FreeGame>();
+        freeGame.setQueen((int)_transform.position.x, (int)_transform.position.z);
     }
 }

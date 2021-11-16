@@ -11,7 +11,7 @@ public class AlgorithmBT : GameItems
 	public int variantenGepruft=0;
 	public List<Queen> arrayListLogAlgoritm= new List<Queen>();
 	public Simulation simulation;
-	public int queensOnTable; 
+	public int queensOnTable;
 
 	//Create an n * n board and fill with zeros
 
@@ -23,9 +23,13 @@ public class AlgorithmBT : GameItems
 			}
 		}
         proplemN=n;
-        createBoard(n);
 		simulation= new Simulation(n);
 		queensOnTable=0;
+    }
+
+	public void displayBoard(int n)
+    {
+		createBoard(n);
     }
 
 	//The queen is placed in a field with the coordinates x, y.
@@ -117,6 +121,7 @@ public class AlgorithmBT : GameItems
 			}		
 		}	
 	}
+
 	public void editBoard() {
 		for (int i=0;i<proplemN;i++) {
 			for (int j=0;j<proplemN;j++) {
