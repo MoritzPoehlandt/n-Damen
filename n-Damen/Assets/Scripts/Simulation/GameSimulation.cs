@@ -2,20 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static AlgorithmBT;
-
+using UnityEngine.UI;
+using System;
 public class GameSimulation : MonoBehaviour
 {
     public AlgorithmBT backtraking;
     public int timeSimulation=500;
+    public Text text;
+    public int userProblemN=0;
+    public InputField inputN;
 
     void Start()
     {
-        backtraking = new AlgorithmBT(8);
+
+        //backtraking = new AlgorithmBT(8);
+        /*backtraking.simulation.setQueenSim(0,0);
+        backtraking.simulation.solve(0,0);
+        Debug.Log(backtraking.simulation.solveCount);  */
         //backtraking.setQueenLogiс(1,3);
-        backtraking.solve(0);
+       // backtraking.solve(0);
         
-        Debug.Log(backtraking.countSolve);
-        Debug.Log(backtraking.arrayListLogAlgoritm.Count);
+        
+      //  Debug.Log(backtraking.countSolve);
+      //  Debug.Log(backtraking.arrayListLogAlgoritm.Count);
     }
 
     // Update is called once per frame
@@ -102,6 +111,8 @@ public class GameSimulation : MonoBehaviour
             {
                 backtraking.prevStep();
             }
+            backtraking.simulation.solve(0,0);
+            setText();
         }        
     public void forwardButton(){
         if (backtraking.simulation.isPlay) {
@@ -110,6 +121,8 @@ public class GameSimulation : MonoBehaviour
             else  {
                 backtraking.nextStep();
             }
+            backtraking.simulation.solve(0,0);
+            setText();
         } 
     public void increaseSpeed(){
         if (timeSimulation>=200){
@@ -119,5 +132,32 @@ public class GameSimulation : MonoBehaviour
         }   
     public void reduceSpeed(){
         timeSimulation=timeSimulation+100;
-        }                   
+        }            
+    public void setText(){
+
+        text.text=$"{backtraking.simulation.iteration}" +"  " +$"{backtraking.simulation.solveCount}";
+    }    
+    public void applyButton(){ 
+        if(GameObject.Find("board") != null){
+            Destroy(GameObject.Find("board")) ;
+        }
+        for (int i=0;i<userProblemN;i++){
+            for (int j=0;j<userProblemN;j++){
+                if (GameObject.Find(i+"_"+j) != null){  
+                    Destroy(GameObject.Find(i+"_"+j)) ;
+                }
+            }
+        }
+
+        userProblemN=	 Convert.ToInt32(inputN.text); 
+        createProbleme();
+    }   
+    public void createProbleme(){
+        if (userProblemN!=0){
+            backtraking = new AlgorithmBT(userProblemN);
+            backtraking.solve(0);
+            Debug.Log(backtraking.countSolve);
+            //Debug.Log(backtraking.arrayListLogAlgoritm.Count);
+        }
+    }
 }
