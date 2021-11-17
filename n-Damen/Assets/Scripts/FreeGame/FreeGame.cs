@@ -7,31 +7,50 @@ public class FreeGame : GameItems
 {
 
     public AlgorithmBT backtraking;
-    public Simulation simulation;
+    public Simulation sim;
 
     void Start()
     {
         backtraking = new AlgorithmBT(8);
-
         backtraking.createQueenWithClick = true;
         backtraking.displayBoard();
+        
+        //backtraking.setQueenLogiс(0, 1);//add in arrayList
+        //!!!!der Code ist der gleiche, aber x und y sind vertauscht
+       //backtraking.simulation.setQueenSim(1, 0);//add in logik brett  
+        //backtraking.editBoard();// zeigt logik brett
+        //backtraking.nextStep();//use createQueen und  zeigt logik brett
 
-        backtraking.setQueenLogiс(0, 1);
-        backtraking.setQueenLogiс(1, 4);
+        backtraking.simulation.solveCount=0;
+        backtraking.simulation.solve(0,0);
+        Debug.Log("0 Step " +backtraking.simulation.solveCount);
 
-        createQueen("0_1", new Vector3(0, 0, 1));
-        createQueen("1_4", new Vector3(1, 0, 4));
+        //!!!!der Code ist der gleiche, aber x und y sind vertauscht
+        backtraking.simulation.setQueenSim(1, 0);
+        createQueen("0_1",new Vector3(0,0,1));
+        backtraking.simulation.solveCount=0;
+        backtraking.simulation.solve(0,0);
+        Debug.Log("1 Step " +backtraking.simulation.solveCount);
 
-        backtraking.solve(0, 0);
+
+        backtraking.simulation.setQueenSim(4, 1);
+        createQueen("1_4",new Vector3(1,0,4));
+        backtraking.simulation.solveCount=0;
+        backtraking.simulation.solve(0,0);
+        Debug.Log("2 Step " +backtraking.simulation.solveCount);
 
         backtraking.editBoard();
+     
+
+        
+        
     }
 
     public void setQueen(int x, int y)
     {
-        backtraking.setQueenLogiс(x, y);
-        createQueen(x.ToString() + "_" + y.ToString(), new Vector3(x, 0, y));
-        backtraking.solve(0,0);
+        backtraking.simulation.setQueenSim(y, x);
+        createQueen("1_4",new Vector3(x,0,y));
+        backtraking.simulation.solve(0,0);
         backtraking.editBoard();
     }
 
