@@ -49,7 +49,7 @@ public class FreeGame : GameItems
     public void setQueen(int x, int y)
     {
         backtraking.simulation.setQueenSim(y, x);
-        createQueen("1_4",new Vector3(x,0,y));
+        createQueen(x + "_"+ y,new Vector3(x,0,y));
         backtraking.simulation.solve(0,0);
         backtraking.editBoard();
     }
