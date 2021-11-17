@@ -27,9 +27,9 @@ public class AlgorithmBT : GameItems
 		queensOnTable=0;
     }
 
-	public void displayBoard(int n)
+	public void displayBoard()
     {
-		createBoard(n);
+		createBoard(proplemN);
     }
 
 	//The queen is placed in a field with the coordinates x, y.

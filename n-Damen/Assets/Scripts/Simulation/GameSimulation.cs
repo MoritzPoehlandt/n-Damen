@@ -97,6 +97,7 @@ public class GameSimulation : MonoBehaviour
     public void playButton(){
         if (backtraking.simulation.isPlay == false) {
                 backtraking.simulation.isPlay = true;
+            Debug.Log("test");
             }
             else {
                 backtraking.simulation.isPlay = false;
@@ -164,6 +165,7 @@ public class GameSimulation : MonoBehaviour
         setText("");
         if (userProblemN!=0){
             backtraking = new AlgorithmBT(userProblemN);
+            backtraking.displayBoard();
             backtraking.solve(0);
             Debug.Log(backtraking.countSolve);
             //Debug.Log(backtraking.arrayListLogAlgoritm.Count);
