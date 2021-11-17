@@ -12,9 +12,11 @@ public class Quiz
     private static Random rand = new Random();
     private Question[] questionList { get; } = new Question[]
     {
-        new Question(rand,"Frage1",new Answer("a1",true),new Answer("b2",false),new Answer("c3",false),new Answer("d4",false)),
-        new Question(rand,"Frage2",new Answer("a1",true),new Answer("b2",false),new Answer("c3",false),new Answer("d4",false)),
-        new Question(rand,"Frage3",new Answer("a1",true),new Answer("b2",false),new Answer("c3",false),new Answer("d4",false)),
+        new Question(rand,"Welche Komplexität besitzt der Backtracking Algorithmus zum Lösen des Damenproblems?",new Answer("O(1)",false),new Answer("O(n)",false),new Answer("O(n!)",true),new Answer("O(n^2)",false)),
+        new Question(rand,"Wofür eignet sich ein Backtracking Algorithmus nicht?",new Answer("Damenproblem",false),new Answer("Lösen eines Sudoku",false),new Answer("Wegsuche in einem Graphen",false),new Answer("Invertieren einer Liste",true)),
+        new Question(rand,"Wie viele eindeutige Lösungen gibt es für das Damenproblem auf einem 3x3 Feld?",new Answer("0",true),new Answer("1",false),new Answer("2",false),new Answer("3",false)),
+        new Question(rand,"Wie viele Lösungen gibt es für das Damenproblem auf einem klassische 8x8 Schachbrett insgesamt?",new Answer("1",false),new Answer("12",false),new Answer("92",true),new Answer("40320 (8!)",false)),
+        new Question(rand,"Das Backtracking nutzt das Prinzip der ...",new Answer("Tiefensuche",true),new Answer("Breitensuche",false),new Answer("Warteschlange",false),new Answer("Listensuche",false)),
     };
 
 
