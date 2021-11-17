@@ -9,6 +9,7 @@
 /n-Damen/[Bb]uilds/
 /n-Damen/[Ll]ogs/
 /n-Damen/[Mm]emoryCaptures/
+/n-Damen/[Uu]ser[Ss]ettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/n-Damen/[Aa]ssets/**/*.meta
