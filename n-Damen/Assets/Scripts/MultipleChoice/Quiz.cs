@@ -45,4 +45,26 @@ public class Quiz
     {
         return correctAnswers.ToString() + "/" + currentQuestionIndex;
     }
+
+    public string getFinishMessage()
+    {
+        double percent = correctAnswers * 100.0 / questionList.Length;
+
+        string text = "Du hast " + percent.ToString("0.##") + "% der Fragen richtig beantwortet.\n";
+
+        if (percent >= 90)
+        {
+            return "Glückwunsch. " + text + "Du hast das Damenproblem und den Backtracking Algorithmus verstanden.";
+        }
+        else if (percent >= 75)
+        {
+            return "Gut. " + text + "Du hast das Damenproblem und den Backtracking Algorithmus größtenteils verstanden.";
+        }
+        else if (percent >= 50)
+        {
+            return "Schade. " + text + "Du hast das Damenproblem und den Backtracking Algorithmus teilweise verstanden aber das geht doch noch besser.";
+        }
+
+        return "Das war wohl nix. " + text + "Du must dich nochmal ausführlich mit dem Backtracking Algorithmus und dem Damenproblem auseinandersetzten.";
+    }
 }

@@ -18,6 +18,11 @@ public class MultipleChoice : MonoBehaviour
 
     public GameObject score;
 
+    public GameObject finishText;
+    public GameObject finishCanvas;
+
+    public GameObject questionCanvas;
+
     private GameObject[] answerTextArr = new GameObject[4];
     private GameObject[] answerButtonArr = new GameObject[4];
 
@@ -73,7 +78,9 @@ public class MultipleChoice : MonoBehaviour
         Question f = quiz.nextQuestion();
         if (f == null)
         {
-            // TODO end
+            questionCanvas.SetActive(false);
+            finishCanvas.SetActive(true);
+            finishText.GetComponent<Text>().text = quiz.getFinishMessage();
             return;
         }
 
