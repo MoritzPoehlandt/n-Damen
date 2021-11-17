@@ -7,6 +7,8 @@ public class Quiz
 
     private int currentQuestionIndex = 0;
 
+    private int correctAnswers = 0;
+
     private static Random rand = new Random();
     private Question[] questionList { get; } = new Question[]
     {
@@ -31,5 +33,16 @@ public class Quiz
         Question f = questionList[currentQuestionIndex];
         currentQuestionIndex++;
         return f;
+    }
+
+    public void incrementCorrect()
+    {
+        correctAnswers++;
+    }
+
+    // return the score as string
+    public string getScore()
+    {
+        return correctAnswers.ToString() + "/" + currentQuestionIndex;
     }
 }

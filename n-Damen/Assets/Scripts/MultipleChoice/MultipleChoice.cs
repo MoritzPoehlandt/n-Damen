@@ -16,6 +16,8 @@ public class MultipleChoice : MonoBehaviour
     public GameObject a3text;
     public GameObject a4text;
 
+    public GameObject score;
+
     private GameObject[] answerTextArr = new GameObject[4];
     private GameObject[] answerButtonArr = new GameObject[4];
 
@@ -25,7 +27,6 @@ public class MultipleChoice : MonoBehaviour
 
     public void ButtonOnClick()
     {
-        
         Debug.Log(EventSystem.current.currentSelectedGameObject.name);
         GameObject curButton = EventSystem.current.currentSelectedGameObject;
 
@@ -34,6 +35,14 @@ public class MultipleChoice : MonoBehaviour
         {
             curButton.GetComponent<Image>().color = Color.red;
         }
+        else
+        {
+            // we color the button green below
+            // only increment our score
+            quiz.incrementCorrect();
+        }
+
+        score.GetComponent<Text>().text = quiz.getScore();
 
         // for all correct answer color them green
         // also disable buttons so that they cannot be clicked
@@ -67,10 +76,14 @@ public class MultipleChoice : MonoBehaviour
             // TODO end
             return;
         }
+
         question.GetComponent<Text>().text = f.Text;
         for (int i = 0; i < 4; i++)
         {
             answerTextArr[i].GetComponent<Text>().text = f.Answers[i].Text;
+            // Important before setting the answer we have to remove the old one;
+            // If we do not do this it will keep using the old answer thus diplaying the wrong correct one.
+            Destroy(answerButtonArr[i].GetComponent<MonoAnswer>());
             MonoAnswer answer = answerButtonArr[i].AddComponent<MonoAnswer>();
             answer.Correct = f.Answers[i].Correct;
         }

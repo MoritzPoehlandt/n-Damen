@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Security.Cryptography;
-using Debug = UnityEngine.Debug;
 
 public class Question
 {
@@ -16,7 +15,7 @@ public class Question
         Answers[2] = c;
         Answers[3] = d;
 
-        // randomsie order of answers
+        // randomise order of answers
         Answers = Answers.OrderBy(x => rand.Next()).ToArray();
     }
 }
