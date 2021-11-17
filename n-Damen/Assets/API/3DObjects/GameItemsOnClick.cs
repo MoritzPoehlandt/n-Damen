@@ -17,6 +17,11 @@ public class GameItemsOnClick : MonoBehaviour
     private void OnMouseDown()
     {
         freeGame = FindObjectOfType<FreeGame>();
-        freeGame.setQueen((int)_transform.position.x, (int)_transform.position.z);
+        if (GameObject.Find((int)_transform.position.x + "_" + (int)_transform.position.z) != null) {
+            freeGame.removeQuee((int)_transform.position.x, (int)_transform.position.z);
+        } else
+        {
+            freeGame.setQueen((int)_transform.position.x, (int)_transform.position.z);
+        }
     }
 }
