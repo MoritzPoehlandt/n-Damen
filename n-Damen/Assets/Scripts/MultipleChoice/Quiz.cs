@@ -6,18 +6,19 @@ public class Quiz
 {
 
     private int currentQuestionIndex = 0;
+
+    private static Random rand = new Random();
     private Question[] questionList { get; } = new Question[]
     {
-        new Question("Frage1",new Answer("a1",true),new Answer("b2",false),new Answer("c3",false),new Answer("d4",false)),
-        new Question("Frage2",new Answer("a1",true),new Answer("b2",false),new Answer("c3",false),new Answer("d4",false)),
-        new Question("Frage3",new Answer("a1",true),new Answer("b2",false),new Answer("c3",false),new Answer("d4",false)),
+        new Question(rand,"Frage1",new Answer("a1",true),new Answer("b2",false),new Answer("c3",false),new Answer("d4",false)),
+        new Question(rand,"Frage2",new Answer("a1",true),new Answer("b2",false),new Answer("c3",false),new Answer("d4",false)),
+        new Question(rand,"Frage3",new Answer("a1",true),new Answer("b2",false),new Answer("c3",false),new Answer("d4",false)),
     };
 
 
     public Quiz()
     {
         // randomsie order of questions
-        Random rand = new Random();
         questionList = questionList.OrderBy(x => rand.Next()).ToArray();
     }
 
