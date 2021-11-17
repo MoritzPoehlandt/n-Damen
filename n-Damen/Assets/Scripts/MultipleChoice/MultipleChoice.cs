@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class MultipleChoice : MonoBehaviour
 {
-    public GameObject frage;
+    public GameObject question;
     public GameObject a1button;
     public GameObject a2button;
     public GameObject a3button;
@@ -16,60 +16,63 @@ public class MultipleChoice : MonoBehaviour
     public GameObject a3text;
     public GameObject a4text;
 
-    private GameObject[] antwortTextArr = new GameObject[4];
-    private GameObject[] antwortButtonArr = new GameObject[4];
+    private GameObject[] answerTextArr = new GameObject[4];
+    private GameObject[] answerButtonArr = new GameObject[4];
 
 
-    private Fragen fragen = new Fragen();
-
-    private GameObject korekteAntwort;
+    private Quiz quiz = new Quiz();
 
 
     public void ButtonOnClick()
     {
-        StartCoroutine(WaitSeconds(2));
+        
         Debug.Log(EventSystem.current.currentSelectedGameObject.name);
         GameObject curButton = EventSystem.current.currentSelectedGameObject;
 
-        // wenn falsche antwort macd den button rot
-        if (!curButton.GetComponent<MonoAntwort>().Richtig)
+        // if answer incorrect color button red
+        if (!curButton.GetComponent<MonoAnswer>().Correct)
         {
             curButton.GetComponent<Image>().color = Color.red;
         }
 
-        // f?r richtige antwort soll gr?n sein egal welcher button gedr?ckt wurde
-        foreach (GameObject button in antwortButtonArr)
+        // for all correct answer color them green
+        // also disable buttons so that they cannot be clicked
+        // this is need because the wait is async and we need to prevent people fromn clicking while waiting
+        foreach (GameObject button in answerButtonArr)
         {
-            if (button.GetComponent<MonoAntwort>().Richtig)
+            if (button.GetComponent<MonoAnswer>().Correct)
             {
                 button.GetComponent<Image>().color = Color.green;
             }
             button.GetComponent<Button>().enabled = false;
 
         }
+
+        // wait 2 seconds before displaying the next question
+        StartCoroutine(WaitBeforeShowingNextQuestion());
     }
 
-    public void naechsteFrage()
+    public void nextQuestion()
     {
         // reset buttons
-        foreach (GameObject button in antwortButtonArr)
+        foreach (GameObject button in answerButtonArr)
         {
             button.GetComponent<Image>().color = Color.white;
             button.GetComponent<Button>().enabled = true;
         }
 
-        Frage f = fragen.naechsteFrage();
+        Question f = quiz.nextQuestion();
         if (f == null)
         {
-            // TODO ende
+            // TODO end
             return;
         }
-        frage.GetComponent<Text>().text = f.Text;
+        question.GetComponent<Text>().text = f.Text;
         for (int i = 0; i < 4; i++)
         {
-            antwortTextArr[i].GetComponent<Text>().text = f.Antworten[i].Text;
-            MonoAntwort antwort = antwortButtonArr[i].AddComponent<MonoAntwort>();
-            antwort.Richtig = f.Antworten[i].Richtig;
+            answerTextArr[i].GetComponent<Text>().text = f.Answers[i].Text;
+            MonoAnswer answer = answerButtonArr[i].AddComponent<MonoAnswer>();
+            answer.Correct = f.Answers[i].Correct;
         }
     }
 
@@ -77,21 +80,21 @@ public class MultipleChoice : MonoBehaviour
     void Awake()
     {
         // initilize array
-        antwortTextArr[0] = a1text;
-        antwortTextArr[1] = a2text;
-        antwortTextArr[2] = a3text;
-        antwortTextArr[3] = a4text;
+        answerTextArr[0] = a1text;
+        answerTextArr[1] = a2text;
+        answerTextArr[2] = a3text;
+        answerTextArr[3] = a4text;
 
-        antwortButtonArr[0] = a1button;
-        antwortButtonArr[1] = a2button;
-        antwortButtonArr[2] = a3button;
-        antwortButtonArr[3] = a4button;
+        answerButtonArr[0] = a1button;
+        answerButtonArr[1] = a2button;
+        answerButtonArr[2] = a3button;
+        answerButtonArr[3] = a4button;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        naechsteFrage();
+        nextQuestion();
     }
 
     // Update is called once per frame
@@ -100,10 +103,10 @@ public class MultipleChoice : MonoBehaviour
 
     }
 
-    // Warte 2 sekunden und dann schaue die n?chste Frage
-    IEnumerator WaitSeconds(int seconds)
+    // wait 2 seconds before showing the next question
+    IEnumerator WaitBeforeShowingNextQuestion()
     {
-        yield return new WaitForSeconds(seconds);
-        naechsteFrage();
+        yield return new WaitForSeconds(2);
+        nextQuestion();
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonoAntwort : MonoBehaviour
+public class MonoAnswer : MonoBehaviour
 {
-    public bool Richtig { get; set; }
+    public bool Correct { get; set; }
 }

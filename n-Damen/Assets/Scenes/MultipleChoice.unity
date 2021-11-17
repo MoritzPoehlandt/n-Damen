@@ -721,7 +721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbdd974371eeb04280dee87ced9ec50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frage: {fileID: 2050806847}
+  question: {fileID: 2050806847}
   a1button: {fileID: 1117098939}
   a2button: {fileID: 1937268680}
   a3button: {fileID: 1336197206}
