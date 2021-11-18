@@ -131,11 +131,11 @@ public class GameSimulation : MonoBehaviour
         } 
     public void increaseSpeed(){
         if (timeSimulation>=200){
-        timeSimulation=timeSimulation-100;
+        timeSimulation=timeSimulation-200;
         }
     }   
     public void reduceSpeed(){
-        timeSimulation=timeSimulation+100;
+        timeSimulation=timeSimulation+200;
         }            
     public void setText(){
         text.text="Ход симуляции № "+$"{backtraking.simulation.iteration}" +"\nКоличество решений с данной растановкой  " +$"{backtraking.simulation.solveCount}";
