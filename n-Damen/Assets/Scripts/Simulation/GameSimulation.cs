@@ -14,17 +14,6 @@ public class GameSimulation : MonoBehaviour
 
     void Start()
     {
-    //backtraking = new AlgorithmBT(4);
- /*   Simulation sim=new Simulation(4);
-    //backtraking.simulation.setQueenSim(0,1);
-    //backtraking.simulation.solve(0,0);
-    sim.setQueenSim(0,1);
-    sim.printBoard();
-    sim.solve(0,0);
-    
-    Debug.Log(sim.solveCount);
-    */
-    //Debug.Log(backtraking.countSolve);
     }
 
     // Update is called once per frame
@@ -32,12 +21,14 @@ public class GameSimulation : MonoBehaviour
     {
         checkSimulationRunning();
         simulationRun();
-
         simulationBack();
-        simulationForward();
-        
+        simulationForward(); 
     }
-
+    public void oneOfSolution(){
+        if(backtraking.simulation.queens==userProblemN){
+            setText("Es ist eine Lösung");
+        }
+    }
     public void checkSimulationRunning()
     {
         //pressing the space starts the simulation. When pressed again, stop
@@ -66,38 +57,22 @@ public class GameSimulation : MonoBehaviour
     public void simulationBack()
     {
         //when pressing to the left 1 step of the algorithm back 
-        if (Input.GetKeyDown("left"))
-        {
-            if (backtraking.simulation.isPlay)
-            {
-                backtraking.simulation.isPlay = false;
-            }
-            else
-            {
-                backtraking.prevStep();
-            }
+        if (Input.GetKeyDown("left")) {
+        backButton();
         }
     }
 
     public void simulationForward()
     {
         //when pressing to the right 1 step of the algorithm forward
-        if (Input.GetKeyDown("right"))
-        {
-            if (backtraking.simulation.isPlay)
-            {
-                backtraking.simulation.isPlay = false;
-            }
-            else
-            {
-                backtraking.nextStep();
-            }
-        }
+        if (Input.GetKeyDown("right")){
+        forwardButton();}
     }
     public void playButton(){
+        setText("");
         if (backtraking.simulation.isPlay == false) {
                 backtraking.simulation.isPlay = true;
-            Debug.Log("test");
+            
             }
             else {
                 backtraking.simulation.isPlay = false;
@@ -114,6 +89,7 @@ public class GameSimulation : MonoBehaviour
                 backtraking.simulation.solveCount=0;
                 backtraking.simulation.solve(0,0);
                 setText();
+                oneOfSolution();
             }
 
         }        
@@ -126,8 +102,8 @@ public class GameSimulation : MonoBehaviour
                 backtraking.simulation.solveCount=0;
                 backtraking.simulation.solve(0,0);
                 setText();
+                oneOfSolution();
             }
-
         } 
     public void increaseSpeed(){
         if (timeSimulation>=200){
@@ -138,7 +114,9 @@ public class GameSimulation : MonoBehaviour
         timeSimulation=timeSimulation+200;
         }            
     public void setText(){
-        text.text="Ход симуляции № "+$"{backtraking.simulation.iteration}" +"\nКоличество решений с данной растановкой  " +$"{backtraking.simulation.solveCount}";
+        text.text="Simulationsfortschritt "+$"{backtraking.simulation.iteration}"+
+        "/" +$"{backtraking.arrayListLogAlgoritm.Count}"
+        +"\nAnzahl der Lösungen mit diesen Anordnung  " +$"{backtraking.simulation.solveCount}";
     } 
     public void setText(string message){
         text.text=message;
@@ -157,6 +135,7 @@ public class GameSimulation : MonoBehaviour
         userProblemN=	 Convert.ToInt32(inputN.text);
         if(userProblemN<12 && userProblemN>0){
             createProbleme();
+            //setText();
         }else{
                 setText("The number must be less than 12 and greater than 0");  
         }
