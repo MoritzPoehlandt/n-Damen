@@ -11,6 +11,11 @@ public class GameSimulation : MonoBehaviour
     public Text text;
     public int userProblemN=0;
     public InputField inputN;
+    //----------------------
+    private bool pause=true; 
+    public Sprite pause_image;
+    public Sprite play_image;
+    public Button play;
 
     void Start()
     {
@@ -34,6 +39,7 @@ public class GameSimulation : MonoBehaviour
         //pressing the space starts the simulation. When pressed again, stop
         if (Input.GetKeyDown("space"))
         {
+            changeBtnPlay();
             if (backtraking.simulation.isPlay == false)
             {
                 backtraking.simulation.isPlay = true;
@@ -47,6 +53,7 @@ public class GameSimulation : MonoBehaviour
 
     public void simulationRun()
     {
+        
         //While the mod play, we take one step in front and again check if the value has changed
         if (backtraking.simulation.isPlay)
         {
@@ -69,6 +76,7 @@ public class GameSimulation : MonoBehaviour
         forwardButton();}
     }
     public void playButton(){
+        changeBtnPlay();
         setText("");
         if (backtraking.simulation.isPlay == false) {
                 backtraking.simulation.isPlay = true;
@@ -150,4 +158,15 @@ public class GameSimulation : MonoBehaviour
             //Debug.Log(backtraking.arrayListLogAlgoritm.Count);
         }
     }
+    public void changeBtnPlay(){
+        if (pause){
+            play.image.sprite=pause_image;
+            pause=false;
+        }else{
+            play.image.sprite=play_image;
+            pause=true;
+        }
+        
+    }
+    
 }
