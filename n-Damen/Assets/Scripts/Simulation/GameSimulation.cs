@@ -16,9 +16,12 @@ public class GameSimulation : MonoBehaviour
     public Sprite pause_image;
     public Sprite play_image;
     public Button play;
+    public GameObject[] arrayCameras;
+    private int cameraIndex=0;
 
     void Start()
     {
+        focusOnCamera(cameraIndex);
     }
 
     // Update is called once per frame
@@ -168,5 +171,18 @@ public class GameSimulation : MonoBehaviour
         }
         
     }
-    
+    public void focusOnCamera(int index){
+        for(int i=0;i<arrayCameras.Length;i++){
+            arrayCameras[i].SetActive (i==index);    
+        }
+    }
+    public void changeCamera(){
+        if (cameraIndex==0){
+            focusOnCamera(1);
+            cameraIndex=1;
+        }else{
+            focusOnCamera(0);
+            cameraIndex=0;
+        }
+    }
 }
