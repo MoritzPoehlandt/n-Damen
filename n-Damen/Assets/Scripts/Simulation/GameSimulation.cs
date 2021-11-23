@@ -79,6 +79,7 @@ public class GameSimulation : MonoBehaviour
         forwardButton();}
     }
     public void playButton(){
+         if(userProblemN>0&&userProblemN<12){
         changeBtnPlay();
         setText("");
         if (backtraking.simulation.isPlay == false) {
@@ -88,9 +89,14 @@ public class GameSimulation : MonoBehaviour
             else {
                 backtraking.simulation.isPlay = false;
             }
+         }else {
+            setText("Geben Sie N ein. Und klicken Sie auf die Schaltfläche mit dem Häkchen.");
+        }
+
         }
     public void backButton(){
-           if (backtraking.simulation.isPlay)
+        if(userProblemN>0&&userProblemN<12){
+                   if (backtraking.simulation.isPlay)
             {
                 backtraking.simulation.isPlay = false;
             }
@@ -102,10 +108,14 @@ public class GameSimulation : MonoBehaviour
                 setText();
                 oneOfSolution();
             }
-
+        
+        }else {
+            setText("Geben Sie N ein. Und klicken Sie auf die Schaltfläche mit dem Häkchen.");
+        }
         }        
     public void forwardButton(){
-        if (backtraking.simulation.isPlay) {
+        if(userProblemN>0&&userProblemN<12){
+            if (backtraking.simulation.isPlay) {
                 backtraking.simulation.isPlay = false;
             }
             else  {
@@ -115,6 +125,10 @@ public class GameSimulation : MonoBehaviour
                 setText();
                 oneOfSolution();
             }
+        }else {
+            setText("Geben Sie N ein. Und klicken Sie auf die Schaltfläche mit dem Häkchen.");
+        }
+
         } 
     public void increaseSpeed(){
         if (timeSimulation>=200){

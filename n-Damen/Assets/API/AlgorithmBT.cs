@@ -141,6 +141,7 @@ public class AlgorithmBT : GameItems
 	//1 step of the algorithm forward, work with  Atribute	simulation
 
 	public void nextStep(){
+		if(simulation.iteration<arrayListLogAlgoritm.Count){
 		if (arrayListLogAlgoritm[simulation.iteration].set_or_remove==true){
 			createQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y,
 			new Vector3(arrayListLogAlgoritm[simulation.iteration].x,0,arrayListLogAlgoritm[simulation.iteration].y));
@@ -151,6 +152,8 @@ public class AlgorithmBT : GameItems
 			}
 		simulation.iteration++;
 		editBoard();
+		}
+
 	}
 
 	//1 step of the algorithm back , work with  Atribute	simulation
