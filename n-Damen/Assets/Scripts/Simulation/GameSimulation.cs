@@ -4,7 +4,7 @@ using UnityEngine;
 using static AlgorithmBT;
 using UnityEngine.UI;
 using System;
-public class GameSimulation : MonoBehaviour
+public class GameSimulation : SwitchCamera
 {
     public AlgorithmBT backtraking;
     public int timeSimulation=500;
@@ -17,6 +17,7 @@ public class GameSimulation : MonoBehaviour
     public Sprite play_image;
     public Button play;
     public GameObject[] arrayCameras;
+    public Camera ortCamera;
     private int cameraIndex=0;
 
     void Start()
@@ -135,8 +136,10 @@ public class GameSimulation : MonoBehaviour
         timeSimulation=timeSimulation-200;
         }
     }   
-    public void reduceSpeed(){
+    public void reduceSpeed(){// bis 1.9 
+    if (timeSimulation<2000){
         timeSimulation=timeSimulation+200;
+    }
         }            
     public void setText(){
         text.text="Simulationsfortschritt "+$"{backtraking.simulation.iteration}"+
@@ -168,6 +171,11 @@ public class GameSimulation : MonoBehaviour
     public void createProbleme(){
         setText("");
         if (userProblemN!=0){
+            //set cameras
+            arrayCameras[0].transform.position=getPostionMainCamera(userProblemN);
+            arrayCameras[1].transform.position=getPostionOrtCamera(userProblemN);
+            setSizeOrtCamera(setOrtCamera(userProblemN));
+            //====================================
             backtraking = new AlgorithmBT(userProblemN);
             backtraking.displayBoard();
             backtraking.solve(0);
@@ -198,5 +206,8 @@ public class GameSimulation : MonoBehaviour
             focusOnCamera(0);
             cameraIndex=0;
         }
+    }
+        public void setSizeOrtCamera(float size){
+         ortCamera.orthographicSize= size;
     }
 }
