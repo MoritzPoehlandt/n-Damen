@@ -1,0 +1,23 @@
+
+newmtl StandardFF0000
+Kd  01 00 00
+Ks  00 00 00
+Ka  00 00 00
+d  01
+Ns  00
+illum 2
+
+
+
+
+newmtl FlatFFFFFFfcba4be0-217a-46d2-8451-4b82b5b1725d
+Kd  01 01 01
+Ks  00 00 00
+Ka  00 00 00
+d  01
+Ns  00
+illum 0
+map_Kd fcba4be0-217a-46d2-8451-4b82b5b1725d.png
+
+
+
