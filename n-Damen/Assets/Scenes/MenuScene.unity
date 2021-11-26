@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -542,7 +542,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 627260120}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1867582125}
+        m_TargetAssemblyTypeName: ChangeSceneWithButtons, Assembly-CSharp
+        m_MethodName: Scene1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &627260120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -763,7 +775,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 866030974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1867582125}
+        m_TargetAssemblyTypeName: ChangeSceneWithButtons, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &866030974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -977,7 +1001,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1125648314}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1867582125}
+        m_TargetAssemblyTypeName: ChangeSceneWithButtons, Assembly-CSharp
+        m_MethodName: Scene3
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1125648314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,6 +1235,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1867582125 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3994033528883424625, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+  m_PrefabInstance: {fileID: 3994033528131659740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5064afb0469f6a4eb8c19616e4220e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1879555186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1210,6 +1257,7 @@ GameObject:
   - component: {fileID: 1879555189}
   - component: {fileID: 1879555188}
   - component: {fileID: 1879555187}
+  - component: {fileID: 1879555190}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1265,3 +1313,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1879555190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879555186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5064afb0469f6a4eb8c19616e4220e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &3994033528131659740
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3994033528883424624, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_Name
+      value: SceneControl
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994033528883424626, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994033528883424626, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 459
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994033528883424626, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 220.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994033528883424626, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994033528883424626, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994033528883424626, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994033528883424626, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994033528883424626, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994033528883424626, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994033528883424626, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3994033528883424626, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a1f21da6d48bd5a42bf5fb8da055a4c5, type: 3}
