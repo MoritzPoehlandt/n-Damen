@@ -12,7 +12,6 @@ public class GameSimulation : SwitchCamera
     public int userProblemN=0;
     public InputField inputN;
     //----------------------
-    private bool pause=true; 
     public Sprite pause_image;
     public Sprite play_image;
     public Button play;
@@ -81,7 +80,7 @@ public class GameSimulation : SwitchCamera
     }
     public void playButton(){
          if(userProblemN>0&&userProblemN<12){
-        changeBtnPlay();
+        
         setText("");
         if (backtraking.simulation.isPlay == false) {
                 backtraking.simulation.isPlay = true;
@@ -93,7 +92,7 @@ public class GameSimulation : SwitchCamera
          }else {
             setText("Geben Sie N ein. Und klicken Sie auf die Schaltfläche mit dem Häkchen.");
         }
-
+        changeBtnPlay();
         }
     public void backButton(){
         if(userProblemN>0&&userProblemN<12){
@@ -113,6 +112,7 @@ public class GameSimulation : SwitchCamera
         }else {
             setText("Geben Sie N ein. Und klicken Sie auf die Schaltfläche mit dem Häkchen.");
         }
+        changeBtnPlay();
         }        
     public void forwardButton(){
         if(userProblemN>0&&userProblemN<12){
@@ -129,7 +129,7 @@ public class GameSimulation : SwitchCamera
         }else {
             setText("Geben Sie N ein. Und klicken Sie auf die Schaltfläche mit dem Häkchen.");
         }
-
+        changeBtnPlay();
         } 
     public void increaseSpeed(){
         if (timeSimulation>=200){
@@ -180,16 +180,15 @@ public class GameSimulation : SwitchCamera
             backtraking.displayBoard();
             backtraking.solve(0);
             Debug.Log(backtraking.countSolve);
+            changeBtnPlay();
             //Debug.Log(backtraking.arrayListLogAlgoritm.Count);
         }
     }
     public void changeBtnPlay(){
-        if (pause){
+        if (backtraking.simulation.isPlay){
             play.image.sprite=pause_image;
-            pause=false;
         }else{
             play.image.sprite=play_image;
-            pause=true;
         }
         
     }

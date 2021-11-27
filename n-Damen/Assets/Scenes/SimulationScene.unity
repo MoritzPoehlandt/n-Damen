@@ -1418,7 +1418,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 320, y: -300}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 65, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389897963
 MonoBehaviour:
@@ -1496,7 +1496,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 177d59af205618242a024a37dfd4da1a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e224cbf8a29cdad46b0f6ed7159d0410, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1630,7 +1630,7 @@ MonoBehaviour:
   userProblemN: 0
   inputN: {fileID: 399688311}
   pause_image: {fileID: 21300000, guid: 7ffb9bc81d2badb4baec1e9710b27496, type: 3}
-  play_image: {fileID: 21300000, guid: c61ca307baeaba84faaf0028ea428679, type: 3}
+  play_image: {fileID: 21300000, guid: 177d59af205618242a024a37dfd4da1a, type: 3}
   play: {fileID: 1065438524}
   arrayCameras:
   - {fileID: 963194225}
@@ -2282,7 +2282,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -110, y: -300}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 65, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2014263810
 MonoBehaviour:
@@ -2360,7 +2360,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f31569916626dab4f93c29a8998989d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26b896b69abb0854caf91c3a2b8e82bd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
