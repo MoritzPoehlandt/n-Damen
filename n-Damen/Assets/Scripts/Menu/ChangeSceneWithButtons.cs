@@ -17,5 +17,15 @@ public class ChangeSceneWithButtons : MonoBehaviour
     {
         SceneManager.LoadScene("Referenzen");
     }
-    public void Quit() => Application.Quit();
+
+    public void Scene4()
+    {
+        SceneManager.LoadScene("FreeGameScene");
+    }
+
+    public void Scene5()
+    {
+        SceneManager.LoadScene("MultipleChoice");
+    }
+        public void Quit() => Application.Quit();
 }
