@@ -14,6 +14,7 @@ public class GameSimulation : SwitchCamera
     //----------------------
     public Sprite pause_image;
     public Sprite play_image;
+    public Image tafel;
     public Button play;
     public GameObject[] arrayCameras;
     public Camera ortCamera;
@@ -21,7 +22,9 @@ public class GameSimulation : SwitchCamera
 
     void Start()
     {
+        tafel.enabled=false;
         focusOnCamera(cameraIndex);
+        
     }
 
     // Update is called once per frame
@@ -82,6 +85,7 @@ public class GameSimulation : SwitchCamera
          if(userProblemN>0&&userProblemN<12){
         
         setText("");
+        tafel.enabled=false;
         if (backtraking.simulation.isPlay == false) {
                 backtraking.simulation.isPlay = true;
             
@@ -95,6 +99,7 @@ public class GameSimulation : SwitchCamera
         changeBtnPlay();
         }
     public void backButton(){
+        
         if(userProblemN>0&&userProblemN<12){
                    if (backtraking.simulation.isPlay)
             {
@@ -106,15 +111,19 @@ public class GameSimulation : SwitchCamera
                 backtraking.simulation.solveCount=0;
                 backtraking.simulation.solve(0,0);
                 setText();
+                
+                tafel.enabled=true;
                 oneOfSolution();
             }
         
         }else {
+            tafel.enabled=true;
             setText("Geben Sie N ein. Und klicken Sie auf die Schaltfläche mit dem Häkchen.");
         }
         changeBtnPlay();
         }        
     public void forwardButton(){
+        
         if(userProblemN>0&&userProblemN<12){
             if (backtraking.simulation.isPlay) {
                 backtraking.simulation.isPlay = false;
@@ -124,9 +133,11 @@ public class GameSimulation : SwitchCamera
                 backtraking.simulation.solveCount=0;
                 backtraking.simulation.solve(0,0);
                 setText();
+                tafel.enabled=true;
                 oneOfSolution();
             }
         }else {
+            tafel.enabled=true;
             setText("Geben Sie N ein. Und klicken Sie auf die Schaltfläche mit dem Häkchen.");
         }
         changeBtnPlay();
@@ -166,10 +177,12 @@ public class GameSimulation : SwitchCamera
             //setText();
         }else{
                 setText("The number must be less than 12 and greater than 0");  
+                tafel.enabled=true;
         }
     }   
     public void createProbleme(){
         setText("");
+        tafel.enabled=false;
         if (userProblemN!=0){
             //set cameras
             arrayCameras[0].transform.position=getPostionMainCamera(userProblemN);
@@ -209,4 +222,5 @@ public class GameSimulation : SwitchCamera
         public void setSizeOrtCamera(float size){
          ortCamera.orthographicSize= size;
     }
+
 }
