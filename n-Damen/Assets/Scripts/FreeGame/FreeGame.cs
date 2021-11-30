@@ -8,116 +8,154 @@ public class FreeGame : GameItems
 
     public AlgorithmBT backtraking;
 
+    private Vector3[] queensPosition = new Vector3[10];
+
     void Start()
     {
-        
+
     }
 
     public void setQueen(int x, int y)
     {
-        backtraking.simulation.setQueenSim(y, x);
-        createQueen(x + "_"+ y,new Vector3(x,0,y));
-        backtraking.simulation.solve(0,0);
-        backtraking.editBoard();
+        if (backtraking.simulation.logicArrayBoard[y, x] == 0)
+        {
+            backtraking.simulation.setQueenSim(y, x);
+            createQueen(x + "_" + y, new Vector3(x, 0, y));
+            backtraking.simulation.solve(0, 0);
+
+            //Board Color
+            backtraking.editBoard();
+
+        }
     }
 
     public void removeQuee(int x, int y)
     {
-        backtraking.simulation.removeQueenSim(y, x);
-        deleteQueen(x.ToString() + "_" + y.ToString());
-        backtraking.simulation.solve(0, 0);
-        backtraking.editBoard();
+        var queenRemovable = true;
+
+        for (int i = 0; i < queensPosition.Length; i++)
+        {
+
+            if (queensPosition[i].x == x && queensPosition[i].z == y)
+            {
+                queenRemovable = false;
+            }
+        }
+
+        if (queenRemovable == true)
+        {
+            backtraking.simulation.removeQueenSim(y, x);
+            deleteQueen(x.ToString() + "_" + y.ToString());
+            backtraking.simulation.solve(0, 0);
+            backtraking.editBoard();
+        }
     }
 
-    public void easy()
+    public void level(int n, Vector3[] queens)
     {
         removeAllFromScene();
-        backtraking = new AlgorithmBT(5);
+        backtraking = new AlgorithmBT(n);
         backtraking.createQueenWithClick = true;
         backtraking.displayBoard();
 
+        //backtraking.simulation.solveCount = 0;
+        //backtraking.simulation.solve(0, 0);
+
+        for (int i = 0; i < queens.Length; i++)
+        {
+            // set queen
+            backtraking.simulation.setQueenSim((int)queens[i].z, (int)queens[i].x);
+            createQueen(queens[i].x.ToString() + "_" + queens[i].z.ToString(), queens[i]);
+            queensPosition[i] = queens[i];
+        }
         backtraking.simulation.solveCount = 0;
         backtraking.simulation.solve(0, 0);
-        Debug.Log("0 Step " + backtraking.simulation.solveCount);
-
-        //!!!!der Code ist der gleiche, aber x und y sind vertauscht
-        backtraking.simulation.setQueenSim(1, 0);
-        createQueen("0_1", new Vector3(0, 0, 1));
-        backtraking.simulation.solveCount = 0;
-        backtraking.simulation.solve(0, 0);
-        Debug.Log("1 Step " + backtraking.simulation.solveCount);
-
-
-        backtraking.simulation.setQueenSim(4, 1);
-        createQueen("1_4", new Vector3(1, 0, 4));
-        backtraking.simulation.solveCount = 0;
-        backtraking.simulation.solve(0, 0);
-        Debug.Log("2 Step " + backtraking.simulation.solveCount);
-
-        backtraking.editBoard();
     }
 
-    public void medium()
+    public void level1()
     {
-        removeAllFromScene();
-        backtraking = new AlgorithmBT(6);
-        backtraking.createQueenWithClick = true;
-        backtraking.displayBoard();
-
-        backtraking.simulation.solveCount = 0;
-        backtraking.simulation.solve(0, 0);
-        Debug.Log("0 Step " + backtraking.simulation.solveCount);
-
-        //!!!!der Code ist der gleiche, aber x und y sind vertauscht
-        backtraking.simulation.setQueenSim(2, 0);
-        createQueen("0_2", new Vector3(0, 0, 2));
-        backtraking.simulation.solveCount = 0;
-        backtraking.simulation.solve(0, 0);
-        Debug.Log("1 Step " + backtraking.simulation.solveCount);
-
-
-        backtraking.simulation.setQueenSim(5, 2);
-        createQueen("2_5", new Vector3(2, 0, 5));
-        backtraking.simulation.solveCount = 0;
-        backtraking.simulation.solve(0, 0);
-        Debug.Log("2 Step " + backtraking.simulation.solveCount);
-
-        backtraking.editBoard();
+        Vector3[] queens = new Vector3[2];
+        queens[0] = new Vector3(0, 0, 1);
+        queens[1] = new Vector3(1, 0, 4);
+        level(5, queens);
     }
 
-    public void hard()
+    public void level2()
     {
-        removeAllFromScene();
-        backtraking = new AlgorithmBT(7);
-        backtraking.createQueenWithClick = true;
-        backtraking.displayBoard();
-
-        backtraking.simulation.solveCount = 0;
-        backtraking.simulation.solve(0, 0);
-        Debug.Log("0 Step " + backtraking.simulation.solveCount);
-
-        //!!!!der Code ist der gleiche, aber x und y sind vertauscht
-        backtraking.simulation.setQueenSim(1, 0);
-        createQueen("0_1", new Vector3(0, 0, 1));
-        backtraking.simulation.solveCount = 0;
-        backtraking.simulation.solve(0, 0);
-        Debug.Log("1 Step " + backtraking.simulation.solveCount);
-
-
-        backtraking.simulation.setQueenSim(4, 1);
-        createQueen("1_4", new Vector3(1, 0, 4));
-        backtraking.simulation.solveCount = 0;
-        backtraking.simulation.solve(0, 0);
-        Debug.Log("2 Step " + backtraking.simulation.solveCount);
-
-        backtraking.editBoard();
+        Vector3[] queens = new Vector3[3];
+        queens[0] = new Vector3(0, 0, 1);
+        queens[1] = new Vector3(1, 0, 4);
+        queens[2] = new Vector3(2, 0, 2);
+        level(6, queens);
     }
+
+    public void level3()
+    {
+        Vector3[] queens = new Vector3[2];
+        queens[0] = new Vector3(0, 0, 3);
+        queens[1] = new Vector3(4, 0, 1);
+        level(6, queens);
+    }
+
+    public void level4()
+    {
+        Vector3[] queens = new Vector3[2];
+        queens[0] = new Vector3(0, 0, 1);
+        queens[1] = new Vector3(1, 0, 4);
+        level(7, queens);
+    }
+
+    public void level5()
+    {
+        Vector3[] queens = new Vector3[3];
+        queens[0] = new Vector3(0, 0, 1);
+        queens[1] = new Vector3(1, 0, 4);
+        queens[2] = new Vector3(2, 0, 2);
+        level(7, queens);
+    }
+
+    public void level6()
+    {
+        Vector3[] queens = new Vector3[2];
+        queens[0] = new Vector3(0, 0, 3);
+        queens[1] = new Vector3(4, 0, 1);
+        level(7, queens);
+    }
+
+    public void level7()
+    {
+        Vector3[] queens = new Vector3[2];
+        queens[0] = new Vector3(0, 0, 1);
+        queens[1] = new Vector3(1, 0, 4);
+        level(8, queens);
+    }
+
+    public void level8()
+    {
+        Vector3[] queens = new Vector3[3];
+        queens[0] = new Vector3(0, 0, 1);
+        queens[1] = new Vector3(1, 0, 4);
+        queens[2] = new Vector3(2, 0, 2);
+        level(8, queens);
+    }
+
+    public void level9()
+    {
+        Vector3[] queens = new Vector3[2];
+        queens[0] = new Vector3(0, 0, 3);
+        queens[1] = new Vector3(4, 0, 1);
+        level(8, queens);
+    }
+
 
     private void removeAllFromScene()
     {
+        queensPosition = null;
+        queensPosition = new Vector3[10];
         if (GameObject.Find("board") != null)
         {
             Destroy(GameObject.Find("board"));
+            backtraking = null;
         }
         for (int i = 0; i < 7; i++)
         {
@@ -135,6 +173,4 @@ public class FreeGame : GameItems
     {
         backtraking.nextStep();
     }
-
-
 }

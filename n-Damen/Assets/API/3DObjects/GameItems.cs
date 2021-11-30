@@ -89,19 +89,9 @@ public class GameItems : MonoBehaviour
     public void setFieldGreen(string name)
     {
         GameObject field = GameObject.Find(name);
-        string fName = field.name;
-        Vector3 fPosition = field.transform.position;
-        Vector3 fScale = field.transform.localScale;
-        Destroy(field);
-        field = Instantiate(Resources.Load("Prefab/green", typeof(GameObject))) as GameObject;
-        field.name = fName;
-        field.transform.position = fPosition;
-        field.transform.localScale = fScale;
-        field.transform.parent = parent.transform;
-        if (createQueenWithClick == true)
-        {
-            field.AddComponent<GameItemsOnClick>();
-        }
+        GameObject chield = field.transform.GetChild(1).transform.gameObject;
+        var renderer = chield.GetComponent<Renderer>();
+        renderer.material.SetColor("_Color", Color.green);
     }
 
     // This methode removes the field with name and set a red field on the same position
@@ -109,19 +99,9 @@ public class GameItems : MonoBehaviour
     public void setFieldRed(string name)
     {
         GameObject field = GameObject.Find(name);
-        string fName = field.name;
-        Vector3 fPosition = field.transform.position;
-        Vector3 fScale = field.transform.localScale;
-        Destroy(field);
-        field = Instantiate(Resources.Load("Prefab/red", typeof(GameObject))) as GameObject;
-        field.name = fName;
-        field.transform.position = fPosition;
-        field.transform.localScale = fScale;
-        field.transform.parent = parent.transform;
-        if (createQueenWithClick == true)
-        {
-            field.AddComponent<GameItemsOnClick>();
-        }
+        GameObject chield = field.transform.GetChild(1).transform.gameObject;
+        var renderer = chield.GetComponent<Renderer>();
+        renderer.material.SetColor("_Color", Color.red);
     }
 
     // This methode removes the field with name and set a white field on the same position
@@ -129,19 +109,9 @@ public class GameItems : MonoBehaviour
     public void setFieldWhite(string name)
     {
         GameObject field = GameObject.Find(name);
-        string fName = field.name;
-        Vector3 fPosition = field.transform.position;
-        Vector3 fScale = field.transform.localScale;
-        Destroy(field);
-        field = Instantiate(Resources.Load("Prefab/white", typeof(GameObject))) as GameObject;
-        field.name = fName;
-        field.transform.position = fPosition;
-        field.transform.localScale = fScale;
-        field.transform.parent = parent.transform;
-        if (createQueenWithClick == true)
-        {
-            field.AddComponent<GameItemsOnClick>();
-        }
+        GameObject chield = field.transform.GetChild(1).transform.gameObject;
+        var renderer = chield.GetComponent<Renderer>();
+        renderer.material.SetColor("_Color", Color.white);
     }
 
     // This methode removes the field with name and set a black field on the same position
@@ -149,19 +119,9 @@ public class GameItems : MonoBehaviour
     public void setFieldBlack(string name)
     {
         GameObject field = GameObject.Find(name);
-        string fName = field.name;
-        Vector3 fPosition = field.transform.position;
-        Vector3 fScale = field.transform.localScale;
-        Destroy(field);
-        field = Instantiate(Resources.Load("Prefab/black", typeof(GameObject))) as GameObject;
-        field.name = fName;
-        field.transform.position = fPosition;
-        field.transform.localScale = fScale;
-        field.transform.parent = parent.transform;
-        if (createQueenWithClick == true)
-        {
-            field.AddComponent<GameItemsOnClick>();
-        }
+        GameObject chield = field.transform.GetChild(1).transform.gameObject;
+        var renderer = chield.GetComponent<Renderer>();
+        renderer.material.SetColor("_Color", Color.black);
     }
 
     // This methode creates a queen with name an d position

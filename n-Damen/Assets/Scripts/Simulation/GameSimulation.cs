@@ -15,13 +15,16 @@ public class GameSimulation : SwitchCamera
     public Sprite pause_image;
     public Sprite play_image;
     public Image tafel;
+    public Image info;
     public Button play;
     public GameObject[] arrayCameras;
     public Camera ortCamera;
     private int cameraIndex=0;
+    private bool infoVar=false;
 
     void Start()
     {
+        info.enabled=false;
         tafel.enabled=false;
         focusOnCamera(cameraIndex);
         
@@ -221,6 +224,15 @@ public class GameSimulation : SwitchCamera
     }
         public void setSizeOrtCamera(float size){
          ortCamera.orthographicSize= size;
+    }
+    public void showInfo(){
+        if (infoVar){
+            infoVar=false;
+            info.enabled=false;
+        }else{
+            infoVar=true;
+            info.enabled=true;
+        }
     }
 
 }
