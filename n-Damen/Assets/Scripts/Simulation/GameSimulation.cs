@@ -158,7 +158,9 @@ public class GameSimulation : SwitchCamera
     public void setText(){
         text.text="Simulationsfortschritt "+$"{backtraking.simulation.iteration}"+
         "/" +$"{backtraking.arrayListLogAlgoritm.Count}"
-        +"\nAnzahl der Lösungen mit diesen Anordnung  " +$"{backtraking.simulation.solveCount}";
+        +"\nAnzahl der Lösungen mit diesen Anordnung  " +$"{backtraking.simulation.solveCount}"
+        +"\nAnzahl der Backtraking  " +$"{backtraking.countBacktrack}"
+        ;
     } 
     public void setText(string message){
         text.text=message;

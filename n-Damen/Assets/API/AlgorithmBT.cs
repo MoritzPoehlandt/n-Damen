@@ -9,6 +9,7 @@ public class AlgorithmBT : GameItems
 	public int proplemN;
 	public int countSolve=0;
 	public int variantenGepruft=0;
+	public int countBacktrack=0;
 	public List<Queen> arrayListLogAlgoritm= new List<Queen>();
 	public Simulation simulation;
 	public int queensOnTable;
@@ -147,6 +148,7 @@ public class AlgorithmBT : GameItems
 			new Vector3(arrayListLogAlgoritm[simulation.iteration].x,0,arrayListLogAlgoritm[simulation.iteration].y));
 			simulation.setQueenSim( arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);	
 		}else{
+				countBacktrack++;
 				deleteQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y); 
 				simulation.removeQueenSim(arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);		 
 			}
@@ -163,6 +165,7 @@ public class AlgorithmBT : GameItems
 			simulation.iteration--; 
 			if(GameObject.Find(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y) == null){
 				if(arrayListLogAlgoritm[simulation.iteration].set_or_remove==false){
+					countBacktrack--;
 					createQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y,
                 	new Vector3(arrayListLogAlgoritm[simulation.iteration].x,0,arrayListLogAlgoritm[simulation.iteration].y));
 					simulation.setQueenSim(arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);
@@ -170,6 +173,7 @@ public class AlgorithmBT : GameItems
 			}else
 				{
 				if(arrayListLogAlgoritm[simulation.iteration].set_or_remove==true){
+					
                		deleteQueen(arrayListLogAlgoritm[simulation.iteration].x+"_"+arrayListLogAlgoritm[simulation.iteration].y);
 					simulation.removeQueenSim(arrayListLogAlgoritm[simulation.iteration].y,arrayListLogAlgoritm[simulation.iteration].x);				   
 					}
