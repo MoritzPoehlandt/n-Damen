@@ -10,22 +10,38 @@ public class FreeGame : GameItems
 
     private Vector3[] queensPosition = new Vector3[10];
 
+    public bool infoHidden;
+
+    public ArrayList moves;
+    public int counter;
+
     void Start()
     {
+        infoHidden = false;
+        infoField();
 
+        counter = 0;
     }
 
     public void setQueen(int x, int y)
     {
         if (backtraking.simulation.logicArrayBoard[y, x] == 0)
         {
-            backtraking.simulation.setQueenSim(y, x);
-            createQueen(x + "_" + y, new Vector3(x, 0, y));
-            backtraking.simulation.solve(0, 0);
+            Debug.Log(x.ToString() + y.ToString());
+            Debug.Log(moves[counter]);
+            if (moves.Count > counter)
+            {
+                if (moves[counter].ToString() == x.ToString() + y.ToString() + "1")
+                {
+                    backtraking.simulation.setQueenSim(y, x);
+                    createQueen(x + "_" + y, new Vector3(x, 0, y));
+                    backtraking.simulation.solve(0, 0);
 
-            //Board Color
-            backtraking.editBoard();
-
+                    //Board Color
+                    backtraking.editBoard();
+                    counter += 1;
+                }
+            }
         }
     }
 
@@ -41,13 +57,16 @@ public class FreeGame : GameItems
                 queenRemovable = false;
             }
         }
-
-        if (queenRemovable == true)
+        if (moves.Count > counter)
         {
-            backtraking.simulation.removeQueenSim(y, x);
-            deleteQueen(x.ToString() + "_" + y.ToString());
-            backtraking.simulation.solve(0, 0);
-            backtraking.editBoard();
+            if (queenRemovable == true && moves[counter].ToString() == x.ToString() + y.ToString() + "0")
+            {
+                backtraking.simulation.removeQueenSim(y, x);
+                deleteQueen(x.ToString() + "_" + y.ToString());
+                backtraking.simulation.solve(0, 0);
+                backtraking.editBoard();
+                    counter += 1;
+            }
         }
     }
 
@@ -72,79 +91,57 @@ public class FreeGame : GameItems
         backtraking.simulation.solve(0, 0);
     }
 
+    public void infoField()
+    {
+        if(infoHidden == true)
+        {
+            GameObject canvas = GameObject.Find("CanvasInfo");
+            CanvasGroup group = canvas.GetComponent<CanvasGroup>();
+            group.alpha = 1.0f;
+            infoHidden = false;
+        } else
+        {
+            GameObject canvas = GameObject.Find("CanvasInfo");
+            CanvasGroup group = canvas.GetComponent<CanvasGroup>();
+            group.alpha = 0.0f;
+            infoHidden = true;
+        }
+    }
+
     public void level1()
     {
+        moves = new ArrayList() { "211", "341", "401", "531"};
+
+        Vector3[] queens = new Vector3[2];
+        queens[0] = new Vector3(0, 0, 2);
+        queens[1] = new Vector3(1, 0, 5);
+        level(6, queens);
+    }
+
+    public void level2()
+    {
+        moves = new ArrayList() { "201", "331", "330", "200", "221", "301", "431"};
+
         Vector3[] queens = new Vector3[2];
         queens[0] = new Vector3(0, 0, 1);
         queens[1] = new Vector3(1, 0, 4);
         level(5, queens);
     }
 
-    public void level2()
-    {
-        Vector3[] queens = new Vector3[3];
-        queens[0] = new Vector3(0, 0, 1);
-        queens[1] = new Vector3(1, 0, 4);
-        queens[2] = new Vector3(2, 0, 2);
-        level(6, queens);
-    }
-
     public void level3()
     {
-        Vector3[] queens = new Vector3[2];
-        queens[0] = new Vector3(0, 0, 3);
-        queens[1] = new Vector3(4, 0, 1);
-        level(6, queens);
-    }
+        moves = new ArrayList() { "311", "461", "521", "651","650","520","460","310","351","421","561","611","731"};
 
-    public void level4()
-    {
-        Vector3[] queens = new Vector3[2];
-        queens[0] = new Vector3(0, 0, 1);
-        queens[1] = new Vector3(1, 0, 4);
-        level(7, queens);
-    }
-
-    public void level5()
-    {
         Vector3[] queens = new Vector3[3];
-        queens[0] = new Vector3(0, 0, 1);
+        queens[0] = new Vector3(0, 0, 0);
         queens[1] = new Vector3(1, 0, 4);
-        queens[2] = new Vector3(2, 0, 2);
-        level(7, queens);
-    }
-
-    public void level6()
-    {
-        Vector3[] queens = new Vector3[2];
-        queens[0] = new Vector3(0, 0, 3);
-        queens[1] = new Vector3(4, 0, 1);
-        level(7, queens);
-    }
-
-    public void level7()
-    {
-        Vector3[] queens = new Vector3[2];
-        queens[0] = new Vector3(0, 0, 1);
-        queens[1] = new Vector3(1, 0, 4);
+        queens[2] = new Vector3(2, 0, 7);
         level(8, queens);
-    }
 
-    public void level8()
-    {
-        Vector3[] queens = new Vector3[3];
-        queens[0] = new Vector3(0, 0, 1);
-        queens[1] = new Vector3(1, 0, 4);
-        queens[2] = new Vector3(2, 0, 2);
-        level(8, queens);
-    }
-
-    public void level9()
-    {
-        Vector3[] queens = new Vector3[2];
-        queens[0] = new Vector3(0, 0, 3);
-        queens[1] = new Vector3(4, 0, 1);
-        level(8, queens);
+        setQueen(3, 1);
+        setQueen(4, 6);
+        setQueen(5, 2);
+        setQueen(6, 5);
     }
 
 
@@ -152,6 +149,7 @@ public class FreeGame : GameItems
     {
         queensPosition = null;
         queensPosition = new Vector3[10];
+        counter = 0;
         if (GameObject.Find("board") != null)
         {
             Destroy(GameObject.Find("board"));
@@ -167,10 +165,5 @@ public class FreeGame : GameItems
                 }
             }
         }
-    }
-
-    public void help()
-    {
-        backtraking.nextStep();
     }
 }
