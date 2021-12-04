@@ -450,7 +450,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c977531f43097644ca554d34cc054243, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5a01e53a6b12ff74086dae975a78e853, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -974,7 +974,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 42fcc73e5886c8341886e504fa6b6c44, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 57bbe4f630c415142bf2b81d6eea2009, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1630,7 +1630,7 @@ GameObject:
   - component: {fileID: 1921369754}
   - component: {fileID: 1921369753}
   m_Layer: 5
-  m_Name: Simulation (FreeGame)
+  m_Name: Szenarien (FreeGame)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1732,7 +1732,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3f14c6e3879acdb498e1f76e5254bd30, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea2040109749dac438f39fb4df6cdbb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
