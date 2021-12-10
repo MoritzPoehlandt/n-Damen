@@ -381,7 +381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -418.92825}
+  m_AnchoredPosition: {x: 0, y: -418.92487}
   m_SizeDelta: {x: 0, y: 837.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &987248559
@@ -405,28 +405,30 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 85383eab58130b34fb250d6e64599366, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Software:\n\n-> GitHub\n\t -> https://desktop.github.com/\n-> UnityHub\n\t->
-    https://unity3d.com/de/get-unity/download\n-> Visual Studio\n\t-> https://visualstudio.microsoft.com/de/downloads/\n->
-    darktable 3.6.1\n-> GIMP 2.10.23\n-> LandingPad\n\t-> http://www.landingpad.me\n->
-    Gravity Sketch\n\t-> GRAVITY SKETCH EDUCATION (um alle Tools im vollen Umfang
-    nutzen zu k\xF6nnen)\n\t\t-> https://www.gravitysketch.vom\n\t\t-> https://store.steampowered.com/app/551371/Gravity
-    Sketch/?utm sourcce=gravitysketch.com&utm medium=website?utm campaign=website-hero-section\n\n\nKapitel
-    aus der Vorlesung \"Informatik\" (Studiengang ITET) von Friedemann Mattern\n->
-    10. Backtracking\n\tVersion: 14. Januar 2021\n\nFachhohschule K\xF6ln\nCampus
-    Gummersbach\nFB Informatik\n-> Algortihmische Anwendung\n\tvon Youssef Aghiga
-    und youssef Barrou\n\n\n-> https://www.mathematik.ch/spiele/N_Damenproblem/\n\t[letzter
+  m_Text: "genutzte Software:\n\n-> GitHub\n\t -> https://desktop.github.com/\n->
+    UnityHub\n\t-> https://unity3d.com/de/get-unity/download\n-> Visual Studio\n\t->
+    https://visualstudio.microsoft.com/de/downloads/\n-> darktable 3.6.1\n-> GIMP
+    2.10.23\n-> LandingPad\n\t-> http://www.landingpad.me\n-> Gravity Sketch\n\t->
+    GRAVITY SKETCH EDUCATION (um alle Tools im vollen Umfang nutzen zu k\xF6nnen)\n\t\t->
+    https://www.gravitysketch.vom\n\t\t-> https://store.steampowered.com/app/551371/Gravity
+    Sketch/?utm sourcce=gravitysketch.com&utm medium=website?utm campaign=website-hero-section\n\n->Schriftarten\n\t->
+    https://www.1001freefonts.com/\n\t-> https://www.fontspace.com/category/microsoft\n\t->
+    http://allfont.de/download/comic-sans-ms/\nKapitel aus der Vorlesung \"Informatik\"
+    (Studiengang ITET) von Friedemann Mattern\n-> 10. Backtracking\n\tVersion: 14.
+    Januar 2021\n\nFachhohschule K\xF6ln\nCampus Gummersbach\nFB Informatik\n-> Algortihmische
+    Anwendung\n\tvon Youssef Aghiga und youssef Barrou\n\n\n-> https://www.mathematik.ch/spiele/N_Damenproblem/\n\t[letzter
     Zugriff 16.10.2021]\n\n-> https://www.de.wikipedia.oorg/wiki/Damenproblem\n\t[letzter
     Zugriff: 16.10.2021]\n\n-> https://intercom.help/gravitysketch/en/\n\t[letzter
     Zugriff: 04.11.2021 -> verschiedene Unterwebsiten genutzt]\n\n-> https://www.youtube.com/results?search
@@ -959,7 +961,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 85383eab58130b34fb250d6e64599366, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
