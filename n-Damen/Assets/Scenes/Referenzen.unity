@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -435,7 +435,7 @@ MonoBehaviour:
     query =gravity+sketch+tutorial\n\t[letzter Zugriff: 04.11.2021 -> verschiedene
     Unterwebseiten genutzt]\n\n-> https://www.youtube.com/watch?v=MWOvwegLDl0 \n\t[letzter
     zugriff 09.12.2021]\n\n-> https://www.youtube.com/watch?v=Hl1I4Rij2Ys&list=PLf_j4Db1v3RkEknk50NWuOVL96xv6if-7\n\t[gesamte
-    Playlist letzter Zugriff im Oktober]\n\n\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest\ntest"
+    Playlist letzter Zugriff im Oktober]\n\n\ntest\ntest\ntest\ntest\nt"
 --- !u!222 &987248560
 CanvasRenderer:
   m_ObjectHideFlags: 0
