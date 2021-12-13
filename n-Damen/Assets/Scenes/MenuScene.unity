@@ -372,7 +372,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -486, y: 31.6}
+  m_SizeDelta: {x: 480, y: 120}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &340748375
 MonoBehaviour:
@@ -420,7 +420,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1867582125}
         m_TargetAssemblyTypeName: ChangeSceneWithButtons, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: SceneTutorial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

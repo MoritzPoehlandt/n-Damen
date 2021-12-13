@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceneWithButtons : MonoBehaviour
 {
+    public void SceneTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
     public void Scene1()
     {
         SceneManager.LoadScene("SimulationScene");
