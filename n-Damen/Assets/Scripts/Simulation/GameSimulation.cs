@@ -33,10 +33,10 @@ public class GameSimulation : SwitchCamera
     // Update is called once per frame
     void Update()
     {
-        checkSimulationRunning();
+        //checkSimulationRunning();
         simulationRun();
-        simulationBack();
-        simulationForward(); 
+        //simulationBack();
+        //simulationForward(); 
     }
     public void oneOfSolution(){
         if(backtraking.simulation.queens==userProblemN){
