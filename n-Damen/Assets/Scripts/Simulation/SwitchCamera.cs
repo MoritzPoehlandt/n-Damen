@@ -17,28 +17,28 @@ public class SwitchCamera : MonoBehaviour
             result=new Vector3(0.75f,4.8f,-4);
             break;
             case 4:
-            result=new Vector3(1.2f,4.8f,-4);
-            break;
-            case 5:
             result=new Vector3(1.5f,4.8f,-4);
             break;
+            case 5:
+            result=new Vector3(1.9f,4.8f,-4);
+            break;
             case 6:
-            result=new Vector3(2.1f,4.8f,-4);
+            result=new Vector3(2.5f,4.8f,-4);
             break;
             case 7:
-            result=new Vector3(2.6f,4.8f,-4);
-            break;
-            case 8:
             result=new Vector3(3.0f,4.8f,-4);
             break;
+            case 8:
+            result=new Vector3(3.4f,4.8f,-4);
+            break;
             case 9:
-            result=new Vector3(3.6f,4.8f,-4);
+            result=new Vector3(4.0f,4.8f,-4);
             break;
             case 10:
-            result=new Vector3(4.1f,4.8f,-4);
+            result=new Vector3(4.5f,4.8f,-4);
             break;
             case 11:
-            result=new Vector3(4.6f,4.8f,-4);
+            result=new Vector3(5.0f,4.8f,-4);
             break;
         }
 
