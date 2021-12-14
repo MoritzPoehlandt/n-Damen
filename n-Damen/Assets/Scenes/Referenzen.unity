@@ -434,8 +434,15 @@ MonoBehaviour:
     Zugriff: 04.11.2021 -> verschiedene Unterwebsiten genutzt]\n\n-> https://www.youtube.com/results?search
     query =gravity+sketch+tutorial\n\t[letzter Zugriff: 04.11.2021 -> verschiedene
     Unterwebseiten genutzt]\n\n-> https://www.youtube.com/watch?v=MWOvwegLDl0 \n\t[letzter
-    zugriff 09.12.2021]\n\n-> https://www.youtube.com/watch?v=Hl1I4Rij2Ys&list=PLf_j4Db1v3RkEknk50NWuOVL96xv6if-7\n\t[gesamte
-    Playlist letzter Zugriff im Oktober]\n\n\ntest\ntest\ntest\ntest\nt"
+    Zugriff: 09.12.2021]\n\n-> https://www.youtube.com/watch?v=Hl1I4Rij2Ys&list=PLf_j4Db1v3RkEknk50NWuOVL96xv6if-7\n\t[gesamte
+    Playlist letzter Zugriff im Oktober]\n\n-> https://www.geeksforgeeks.org/backtracking-introduction/\n\t[letzter
+    Zugriff: 12.12.21]\n\n-> http://www.vom-hau.de/Fortbildung/41%20Algorithmen.pdf\n\t[letzter
+    Zugriff: 07.12.21]\n\n-> https://im-coder.com/vorgehensweise-zum-berechnen-der-laufzeit-komplexitaet-der-backtracking-algorithmus.html\n\t[letzter
+    Zugriff: 07.12.21]\n\n-> http://scalingbits.com/java/javakurs2/algorithmen/backtracking\n\t[letzter
+    Zugriff: 07.12.21]\n\n-> https://www.mathematik.ch/spiele/N_Damenproblem/\n\t[letzter
+    Zugriff: 16.11.21]\n\n-> https://tu-dresden.de/tu-dresden/newsportal/news/queens\n\t[letzter
+    Zugriff: 16.11.21]\n\n-> https://www.dbs.ifi.lmu.de/Lehre/EffizienteAlgorithmen/SS2017/Kap.5-Paradigmen.pdf\n\t[letzter
+    Zugriff: 07.12.21]"
 --- !u!222 &987248560
 CanvasRenderer:
   m_ObjectHideFlags: 0
