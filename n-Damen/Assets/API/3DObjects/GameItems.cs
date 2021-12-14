@@ -26,7 +26,6 @@ public class GameItems : MonoBehaviour
     private float qSpeed = 1.0f;
     public bool createQueenWithClick = false;
     GameObject parent;
-
     //This methode creates a board with n* n fields
     // Each field get a specific number starting from 0 to n*n
 
