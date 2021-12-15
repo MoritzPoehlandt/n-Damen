@@ -165,12 +165,21 @@ public class FreeGame : GameItems
             GameObject button = GameObject.Find("difficulty");
             Text text = button.GetComponentInChildren<Text>();
             text.text = "schwer";
+            if(GameObject.Find("board"))
+            {
+                Destroy(GameObject.Find("board"));
+                backtraking.displayBoard();
+            }
         } else
         {
             isdifficult = true;
             GameObject button = GameObject.Find("difficulty");
             Text text = button.GetComponentInChildren<Text>();
             text.text = "einfach";
+            if (GameObject.Find("board"))
+            {
+                backtraking.editBoard();
+            }
         }
     }
 
