@@ -669,7 +669,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Die Spielfigur Dame ist im Schachspiel eine sehr m\xE4chtige Figur. Sie
     kann sich sowohl gerade als auch diagonal von ihrer Position auf dem Schachfeld
-    bewegen. (siehe die rot hervorgehobenen Felder) Wenn eine andere Figur auf diesem
+    bewegen (siehe die rot hervorgehobenen Felder). Wenn eine andere Figur auf diesem
     Weg steht, spricht man davon, dass die Dame diese Figur schlagen kann beziehungsweise
     bedroht. Dies versucht man im Schachspiel m\xF6glichst zu vermeiden. Somit sollten
     Figuren so platziert werden, dass sie nicht von anderen Figuren geschlagen werden
@@ -5097,11 +5097,12 @@ MonoBehaviour:
   m_Text: "Willkommen beim gef\xFChrtem Spiel \u2013 N-Damen-Problem.\nSie werden
     zun\xE4chst mittels eines Tutorials durch die verschiedenen Bereiche des Spiels
     gef\xFChrt und lernen die Zwecke und Bedienelemente kennen.\n\nDas N-Damen-Problem
-    ist eines der Problemedes Backtracking-Algorithmus. Dieser ist eine systematische
-    Suchstrategie, und findet immer eine L\xF6sung/das Ziel (sofern vorhanden). Der
-    Algorithmusmacht eine Tiefensuche in einem L\xF6sungsbaum und sucht h\xF6chstens
-    einmal in einer \"Sackgasse\". Somit ergibt sich im ung\xFCnstigsten Fall eine
-    Laufzeit von O(k^n). Auch Probleme wie das L\xF6sen eines Sudoku oder die Weg-Suche
+    l\xE4sst sich mit Hilfe des Backtracking-Algorithmus l\xF6sen. Dieser ist eine
+    systematische Suchstrategie, und findet immer eine L\xF6sung/das Ziel (sofern
+    vorhanden). Der Algorithmus macht eine Tiefensuche in einem L\xF6sungsbaum und
+    sucht h\xF6chstens einmal in einer \"Sackgasse\". Somit ergibt sich im ung\xFCnstigsten
+    Fall eine Laufzeit von O(k^n), wobei k f\xFCr den Verzweigungsgrad und n f\xFCr
+    die Baumtiefe steht. Auch Probleme wie das L\xF6sen eines Sudoku oder die Weg-Suche
     lassen sich mit diesem Algorithmus l\xF6sen. Hingegen zum invertieren einer Liste
     ist er Beispielweise eher nicht geeignet."
 --- !u!222 &1468162587
