@@ -107,6 +107,7 @@ public class FreeGame : GameItems
         {
             backtraking.editBoard();
         }
+        infoTextField();
     }
 
     public void infoField()
