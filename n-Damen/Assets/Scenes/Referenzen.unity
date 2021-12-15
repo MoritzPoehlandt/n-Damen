@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
+  m_Color: {r: 0.1254902, g: 0.1254902, b: 0.1254902, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -301,7 +301,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -105}
   m_SizeDelta: {x: 260.4469, y: 138.221}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &419843213
@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -442,7 +442,10 @@ MonoBehaviour:
     Zugriff: 07.12.21]\n\n-> https://www.mathematik.ch/spiele/N_Damenproblem/\n\t[letzter
     Zugriff: 16.11.21]\n\n-> https://tu-dresden.de/tu-dresden/newsportal/news/queens\n\t[letzter
     Zugriff: 16.11.21]\n\n-> https://www.dbs.ifi.lmu.de/Lehre/EffizienteAlgorithmen/SS2017/Kap.5-Paradigmen.pdf\n\t[letzter
-    Zugriff: 07.12.21]"
+    Zugriff: 07.12.21]\n\n-> https://affinity.serif.com/de/designer/\n\n-> https://habr.com/ru/post/343738/\n\t[letzter
+    Zugriff: 12.10.2021]\n\n-> https://forallx.ru/posts/n-queens-problem\n\t[letzter
+    Zugriff: 12.10.2021]\n\n-> https://habr.com/ru/post/483036/\n\t[letzter Zugriff:
+    12.10.2021]\n\n-> https://docs.unity3d.com/Manual/index.html\n"
 --- !u!222 &987248560
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -534,7 +537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.2901961}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
