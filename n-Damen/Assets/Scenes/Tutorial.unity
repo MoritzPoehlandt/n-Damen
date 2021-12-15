@@ -4781,15 +4781,15 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "1. Man f\xFChrt einen Algorithmus so lange aus, bis man an eine Grenze
-    bzw. Sackgasse st\xF6\xDFt.\n2. In diesem Fall geht man einen Schritt zur\xFCck
+    bzw. Sackgasse st\xF6\xDFt.\n\n2. In diesem Fall geht man einen Schritt zur\xFCck
     und versucht von da einen anderen noch nicht bearbeiteten Weg. Sind auf einer
     Stufe alle M\xF6glichkeiten ausgesch\xF6pft, wird ebenfalls ein Schritt zur\xFCck
-    gemacht.\n3. Ist man am Ziel angelangt, gibt es nun 2 Varianten weiterzumachen.
+    gemacht.\n\n3. Ist man am Ziel angelangt, gibt es nun 2 Varianten weiterzumachen.
     \n\t1. Variante: Die eine L\xF6sung reicht, man ist fertig.\n\t2. Variante: Man
     merkt sich die L\xF6sung, geht einen Schritt zur\xFCck und versucht eine weitere
     L\xF6sungzufinden. Wenn man immer die 2. Variante w\xE4hlt findet man schlussendlich
-    alle m\xF6glichen L\xF6sungen.\n4. Alle Varianten bearbeitet, hier gibt es 2
-    Finale Varianten.\n\t1. Variante: Man hat mindestens eine L\xF6sung gefunden.\n\t2.
+    alle m\xF6glichen L\xF6sungen.\n\n4. Alle Varianten bearbeitet, hier gibt es
+    2 Finale Varianten.\n\t1. Variante: Man hat mindestens eine L\xF6sung gefunden.\n\t2.
     Variante: Man hat keine einzige L\xF6sung gefunden. In diesem Fall gibt es f\xFCr
     das Problem keine L\xF6sung."
 --- !u!222 &1421684428
@@ -6722,7 +6722,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "In dem Feld neben n= muss die Anzahl der Felder pro Zeile/Spalte eingegeben
-    und dann mit dem ok-Button best\xE4tigt werden. (Eingabe von 1 bis 11 moeglich,
+    und dann mit dem ok-Button best\xE4tigt werden. Eingabe von 1 bis 11 m\xF6glich,
     ist keine Zahl oder eine Zahl au\xDFerhalb des Bereichs eingegeben, erh\xE4lt
     man eine Fehlermeldung."
 --- !u!222 &2120605217
