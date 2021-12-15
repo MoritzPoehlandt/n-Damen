@@ -12,11 +12,19 @@ public class Quiz
     private static Random rand = new Random();
     private Question[] questionList { get; } = new Question[]
     {
-        new Question(rand,"Welche Komplexität besitzt der Backtracking Algorithmus zum Lösen des Damenproblems?",new Answer("O(1)",false),new Answer("O(n)",false),new Answer("O(n!)",true),new Answer("O(n^2)",false)),
+        new Question(rand,"Welche Komplexität besitzt der Backtracking Algorithmus zum Lösen des Damenproblems?",new Answer("O(1)",false),new Answer("O(n)",false),new Answer("O(k^n)",true),new Answer("O(n^2)",false)),
         new Question(rand,"Wofür eignet sich ein Backtracking Algorithmus nicht?",new Answer("Damenproblem",false),new Answer("Lösen eines Sudoku",false),new Answer("Wegsuche in einem Graphen",false),new Answer("Invertieren einer Liste",true)),
         new Question(rand,"Wie viele eindeutige Lösungen gibt es für das Damenproblem auf einem 3x3 Feld?",new Answer("0",true),new Answer("1",false),new Answer("2",false),new Answer("3",false)),
-        new Question(rand,"Wie viele Lösungen gibt es für das Damenproblem auf einem klassische 8x8 Schachbrett insgesamt?",new Answer("1",false),new Answer("12",false),new Answer("92",true),new Answer("40320 (8!)",false)),
         new Question(rand,"Das Backtracking nutzt das Prinzip der ...",new Answer("Tiefensuche",true),new Answer("Breitensuche",false),new Answer("Warteschlange",false),new Answer("Listensuche",false)),
+        new Question(rand,"Welche der folgenden Aussagen stimmt für den Algorithmus zum Lösen des Damenproblems für Spielfelder der Größe n > 1?",
+            new Answer("Es gibt immer genau eine Lösung",false), new Answer("Es gibt gar keine Lösung für das Problem",false),
+            new Answer("Nicht alle Feldgrößen haben eine Lösung",true), new Answer("Die Anzahl der Lösungen ist gleich der Feldgröße n",false)),
+        new Question(rand,"Wann wird in dem Algorithmus eine Dame zurückgesetzt?",
+            new Answer("Wenn eine Dame am Spielfeldrand platziert wurde",false), new Answer("Wenn in der nächsten Reihe ein genau ein freies Feld ist",false),
+            new Answer("Wenn mehr als zwei Damen platziert wurden",false), new Answer("Wenn keine weitere Dame platziert werden kann order eine Lösung gefunden wurde",true)),
+        new Question(rand,"Die Laufzeit des Algorithmus im bei steigender Spielfeldgröße n verhält sich...",
+            new Answer("konstant",false), new Answer("linear",false),
+            new Answer("exponentiell",true), new Answer("logarithmisch",false)),
     };
 
 
