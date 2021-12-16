@@ -21,7 +21,7 @@ public class Quiz
             new Answer("Nicht alle Feldgrößen haben eine Lösung",true), new Answer("Die Anzahl der Lösungen ist gleich der Feldgröße n",false)),
         new Question(rand,"Wann wird in dem Algorithmus eine Dame zurückgesetzt?",
             new Answer("Wenn eine Dame am Spielfeldrand platziert wurde",false), new Answer("Wenn in der nächsten Reihe ein genau ein freies Feld ist",false),
-            new Answer("Wenn mehr als zwei Damen platziert wurden",false), new Answer("Wenn keine weitere Dame platziert werden kann order eine Lösung gefunden wurde",true)),
+            new Answer("Wenn mehr als zwei Damen platziert wurden",false), new Answer("Wenn keine weitere Dame platziert werden kann oder eine Lösung gefunden wurde",true)),
         new Question(rand,"Die Laufzeit des Algorithmus im bei steigender Spielfeldgröße n verhält sich...",
             new Answer("konstant",false), new Answer("linear",false),
             new Answer("exponentiell",true), new Answer("logarithmisch",false)),
