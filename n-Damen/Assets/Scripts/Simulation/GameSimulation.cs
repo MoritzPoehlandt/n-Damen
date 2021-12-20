@@ -40,7 +40,7 @@ public class GameSimulation : SwitchCamera
     }
     public void oneOfSolution(){
         if(backtraking.simulation.queens==userProblemN){
-            setText("Es ist eine Lösung");
+            setText("Es ist eine Lösung.");
         }
     }
     public void checkSimulationRunning()
