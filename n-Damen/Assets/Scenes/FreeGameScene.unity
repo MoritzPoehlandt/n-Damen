@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1079,7 +1079,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 660544013}
         m_TargetAssemblyTypeName: FreeGame, Assembly-CSharp
-        m_MethodName: level1
+        m_MethodName: level1_trick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2212,7 +2212,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 660544013}
         m_TargetAssemblyTypeName: FreeGame, Assembly-CSharp
-        m_MethodName: level2
+        m_MethodName: level2_trick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Simulation : MonoBehaviour
+public class Simulation
 {
     public int[,] logicArrayBoard;
     public int proplemN;

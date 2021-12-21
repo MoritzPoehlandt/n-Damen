@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading;
 
-public class FreeGame : GameItems
+public class FreeGame : AlgorithmBT
 {
 
     public AlgorithmBT backtraking;
@@ -82,13 +83,13 @@ public class FreeGame : GameItems
 
     public void level(int n, Vector3[] queens)
     {
-        backtraking = null;
+        backtraking =new AlgorithmBT();
         queensPosition = null;
         queensPosition = new Vector3[10];
         counter = 0;
         removeAllFromScene();
 
-        backtraking = new AlgorithmBT(n);
+        backtraking.newAlgorithmBT(n);
         backtraking.createQueenWithClick = true;
         backtraking.displayBoard();
 
@@ -103,7 +104,7 @@ public class FreeGame : GameItems
         }
         backtraking.simulation.solveCount = 0;
         backtraking.simulation.solve(0, 0);
-        if (isdifficult == true)
+        if (isdifficult == false)
         {
             backtraking.editBoard();
         }
@@ -224,7 +225,7 @@ public class FreeGame : GameItems
         setQueen(4, 6);
         setQueen(5, 2);
         setQueen(6, 5);
-        backtraking.editBoard();
+        //backtraking.editBoard();
     }
 
     public void level4()
@@ -239,7 +240,7 @@ public class FreeGame : GameItems
 
         setQueen(3, 2);
         setQueen(4, 4);
-        backtraking.editBoard();
+        //backtraking.editBoard();
     }
 
 

@@ -16,7 +16,7 @@ public class AlgorithmBT : GameItems
 
 	//Create an n * n board and fill with zeros
 
-    public AlgorithmBT (int n){
+    public void newAlgorithmBT (int n){
 		twoDimArrayBoard=new int [n,n];
 		for (int i=0;i<n;i++) {
 			for (int j=0;j<n;j++) {

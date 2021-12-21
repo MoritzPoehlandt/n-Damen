@@ -194,7 +194,7 @@ public class GameSimulation : SwitchCamera
             arrayCameras[1].transform.position=getPostionOrtCamera(userProblemN);
             setSizeOrtCamera(setOrtCamera(userProblemN));
             //====================================
-            backtraking = new AlgorithmBT(userProblemN);
+            backtraking.newAlgorithmBT(userProblemN);
             backtraking.displayBoard();
             backtraking.solve(0);
             Debug.Log(backtraking.countSolve);
