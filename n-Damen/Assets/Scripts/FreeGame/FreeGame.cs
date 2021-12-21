@@ -141,15 +141,15 @@ public class FreeGame : AlgorithmBT
             if (isBacktrack.Substring(3 - 1) == "1")
             {
                 textBox.text = "Der Backtracking Algorithmus platziert jeweils eine Dame in einer Zeile an der ersten gültigen Position. " +
-                                "Das macht er für jede Zeile, bis er in einer Zeile keine Dame mehr setzten kann." +
+                                "Das macht er für jede Zeile, bis er in einer Zeile keine Dame mehr setzten kann. " +
                                 "Probiere wie der Algorithmus, für jede Zeile eine Dame zu setzten.";
             }
             else
             {
-                textBox.text = "Wenn du keine Dame mehr setzten kannst, da alle Felder besetzt sind, musst du deine zu letzt platzierte Dame enternen." +
-                                "Findet sich in der Zeile, wo die Dame entfernt wurde eine neue Position, kannst du dort eine Dame sezten." +
-                                "Falls sich kein freies Feld in der Zeile mehr findet musst du die Dame in der Zeile davor ebenfalls entfernen und schauen, ob sich dadurch ein freies Feld ergibt." +
-                                "Dieses Verfahren nennt man Backtracking";
+                textBox.text = "Wenn du keine Dame mehr setzten kannst, da alle Felder besetzt sind, musst du deine zu letzt platzierte Dame enternen. " +
+                                "Findet sich in der Zeile, wo die Dame entfernt wurde eine neue Position, kannst du dort eine Dame sezten. " +
+                                "Falls sich kein freies Feld in der Zeile mehr findet musst du die Dame in der Zeile davor ebenfalls entfernen und schauen, ob sich dadurch ein freies Feld ergibt. " +
+                                "Dieses Verfahren nennt man Backtracking.";
             }
         } else if (counter == moves.Count)
         {
