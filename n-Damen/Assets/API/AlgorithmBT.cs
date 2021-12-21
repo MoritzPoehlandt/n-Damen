@@ -26,6 +26,8 @@ public class AlgorithmBT : GameItems
         proplemN=n;
 		simulation= new Simulation(n);
 		queensOnTable=0;
+		countBacktrack=0;
+		arrayListLogAlgoritm= new List<Queen>();
     }
 
 	public void displayBoard()
