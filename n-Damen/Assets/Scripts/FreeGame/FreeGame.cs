@@ -8,8 +8,6 @@ using System.Threading;
 public class FreeGame : AlgorithmBT
 {
 
-    public AlgorithmBT backtraking;
-
     private Vector3[] queensPosition = new Vector3[10];
 
     public bool infoHidden;
@@ -24,39 +22,37 @@ public class FreeGame : AlgorithmBT
         infoHidden = false;
         isdifficult = true;
         infoField();
-
         counter = 0;
     }
 
     public void setQueen(int x, int y)
     {
-        infoTextField();
-        if (backtraking.simulation.logicArrayBoard[y, x] == 0)
+        if (simulation.logicArrayBoard[y, x] == 0)
         {
             if (moves.Count > counter)
             {
                 if (moves[counter].ToString() == x.ToString() + y.ToString() + "1")
                 {
-                    backtraking.simulation.setQueenSim(y, x);
+                    simulation.setQueenSim(y, x);
                     createQueen(x + "_" + y, new Vector3(x, 0, y));
-                    backtraking.simulation.solve(0, 0);
+                    simulation.solve(0, 0);
 
                     //Board Color
-                    if (isdifficult == true)
+                    if (isdifficult == false)
                     {
-                     //   backtraking.editBoard();
+                        editBoard();
                     }
                     counter += 1;
                 }
             }
         }
+        infoTextField();
     }
 
     public void removeQuee(int x, int y)
     {
 
         var queenRemovable = true;
-        infoTextField();
         for (int i = 0; i < queensPosition.Length; i++)
         {
 
@@ -69,46 +65,49 @@ public class FreeGame : AlgorithmBT
         {
             if (queenRemovable == true && moves[counter].ToString() == x.ToString() + y.ToString() + "0")
             {
-                backtraking.simulation.removeQueenSim(y, x);
+                simulation.removeQueenSim(y, x);
                 deleteQueen(x.ToString() + "_" + y.ToString());
-                backtraking.simulation.solve(0, 0);
-                if (isdifficult == true)
+                simulation.solve(0, 0);
+
+                if (isdifficult == false)
                 {
-                 //   backtraking.editBoard();
+                    editBoard();
                 }
                 counter += 1;
             }
         }
+        infoTextField();
     }
 
     public void level(int n, Vector3[] queens)
     {
-        backtraking =new AlgorithmBT();
+        removeAllFromScene();
         queensPosition = null;
         queensPosition = new Vector3[10];
         counter = 0;
-        removeAllFromScene();
 
-        backtraking.newAlgorithmBT(n);
-        backtraking.createQueenWithClick = true;
-        backtraking.displayBoard();
+        newAlgorithmBT(n);
+        createQueenWithClick = true;
+        displayBoard();
 
         changeCameraposition(new Vector3(n / 2, 28, n / 2 - 0.5f));
 
         for (int i = 0; i < queens.Length; i++)
         {
             // set queen
-            backtraking.simulation.setQueenSim((int)queens[i].z, (int)queens[i].x);
+            simulation.setQueenSim((int)queens[i].z, (int)queens[i].x);
             createQueen(queens[i].x.ToString() + "_" + queens[i].z.ToString(), queens[i]);
             queensPosition[i] = queens[i];
         }
-        backtraking.simulation.solveCount = 0;
-        backtraking.simulation.solve(0, 0);
-        if (isdifficult == false)
-        {
-            //backtraking.editBoard();
-        }
+        simulation.solveCount = 0;
+        simulation.solve(0, 0);
+
         infoTextField();
+
+        isdifficult = true;
+        GameObject button = GameObject.Find("difficulty");
+        Text text = button.GetComponentInChildren<Text>();
+        text.text = "schwer";
     }
 
     public void infoField()
@@ -152,7 +151,7 @@ public class FreeGame : AlgorithmBT
                                 "Falls sich kein freies Feld in der Zeile mehr findet musst du die Dame in der Zeile davor ebenfalls entfernen und schauen, ob sich dadurch ein freies Feld ergibt." +
                                 "Dieses Verfahren nennt man Backtracking";
             }
-        } else
+        } else if (counter == moves.Count)
         {
             textBox.text = "Geschafft :)";
         }
@@ -166,21 +165,21 @@ public class FreeGame : AlgorithmBT
             isdifficult = false;
             GameObject button = GameObject.Find("difficulty");
             Text text = button.GetComponentInChildren<Text>();
-            text.text = "schwer";
-            if(GameObject.Find("board"))
+            text.text = "einfach";
+            if (GameObject.Find("board"))
             {
-                Destroy(GameObject.Find("board"));
-                backtraking.displayBoard();
+                editBoard();
             }
         } else
         {
             isdifficult = true;
             GameObject button = GameObject.Find("difficulty");
             Text text = button.GetComponentInChildren<Text>();
-            text.text = "einfach";
+            text.text = "schwer";
             if (GameObject.Find("board"))
             {
-            //    backtraking.editBoard();
+                Destroy(GameObject.Find("board"));
+                displayBoard();
             }
         }
     }
@@ -225,7 +224,6 @@ public class FreeGame : AlgorithmBT
         setQueen(4, 6);
         setQueen(5, 2);
         setQueen(6, 5);
-        //backtraking.editBoard();
     }
 
     public void level4()
@@ -240,7 +238,6 @@ public class FreeGame : AlgorithmBT
 
         setQueen(3, 2);
         setQueen(4, 4);
-        //backtraking.editBoard();
     }
 
 
@@ -264,7 +261,6 @@ public class FreeGame : AlgorithmBT
         if (GameObject.Find("board") != null)
         {
             Destroy(GameObject.Find("board"));
-            backtraking = null;
         }
     }
 }
