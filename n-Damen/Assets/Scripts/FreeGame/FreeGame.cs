@@ -44,7 +44,7 @@ public class FreeGame : AlgorithmBT
                     //Board Color
                     if (isdifficult == true)
                     {
-                        backtraking.editBoard();
+                     //   backtraking.editBoard();
                     }
                     counter += 1;
                 }
@@ -74,7 +74,7 @@ public class FreeGame : AlgorithmBT
                 backtraking.simulation.solve(0, 0);
                 if (isdifficult == true)
                 {
-                    backtraking.editBoard();
+                 //   backtraking.editBoard();
                 }
                 counter += 1;
             }
@@ -106,7 +106,7 @@ public class FreeGame : AlgorithmBT
         backtraking.simulation.solve(0, 0);
         if (isdifficult == false)
         {
-            backtraking.editBoard();
+            //backtraking.editBoard();
         }
         infoTextField();
     }
@@ -180,7 +180,7 @@ public class FreeGame : AlgorithmBT
             text.text = "einfach";
             if (GameObject.Find("board"))
             {
-                backtraking.editBoard();
+            //    backtraking.editBoard();
             }
         }
     }
